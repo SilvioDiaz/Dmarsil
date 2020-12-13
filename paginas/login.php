@@ -20,3 +20,4 @@
 </form>
 <a href = ./index.php?pagina=cadastro>Não tem cadasro? Clique aqui</a>
 </div>
+
