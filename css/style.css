@@ -1,0 +1,65 @@
+.produto{
+    display: block;
+    width: auto;
+    padding: 1rem;
+}
+
+
+.Home{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.imgProduto{
+    width: 25%;
+}
+
+.imgHome{
+    width: 200px;
+}
+
+.menuHeader{
+    display: flex;
+    flex-direction: column;
+}
+
+.inverter{
+    flex-direction: row-reverse;
+}
+
+td,th{
+    border: 1px solid rgb(190, 190, 190);
+    padding: 1rem;
+    white-space: nowrap;
+}
+
+.containerLista{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imgTabela{
+    height: 25%;
+    }
+
+.navbar-brand{
+    display: flex;
+    
+}
+
+.categoria{
+    display:flex;
+}
+
+.headerBase{
+    display: flex;
+
+}
+
+@media screen and (max-width: 720px){
+    .categoria{
+        flex-direction: column;
+    }
+}
