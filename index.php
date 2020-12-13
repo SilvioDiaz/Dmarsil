@@ -74,6 +74,15 @@ switch($pagina){
     case 'cadastropromo':
         include 'paginas/ADMIN/cadastropromocao.php';
         break;
+    case 'categorias':
+        include 'paginas/ADMIN/tipos_produto.php';
+        break;
+
+    case 'cadastro_categoria':
+        include 'paginas/ADMIN/cadastro_categoria.php';
+        break;
+    
+
                 
     
 }

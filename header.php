@@ -113,13 +113,13 @@ if(isset($_SESSION['carrinho'])){
          Admin
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item" href="?pagina=cadastro_funcionarios">Cadastro de Funcionários</a>
         <a class="dropdown-item"  href="?pagina=cadastro_produtos">Cadastro de Produtos</a>
         <a class="dropdown-item"  href="?pagina=tipos_usuario">Tipos de Usuario</a>
         <a class="dropdown-item"  href="?pagina=usuarios">Usuarios</a>
         <a class="dropdown-item"  href="?pagina=pedidos"> Pedidos </a>
         <a class="dropdown-item"  href="?pagina=produtos"> Produtos </a>
         <a class="dropdown-item"  href="?pagina=cadastropromo"> Promoções </a>
+        <a class="dropdown-item"  href="?pagina=categorias">Categorias</a>
 
         </div>
       </li>
