@@ -4,6 +4,10 @@
     session_start();
   }
 
+  if(isset($_GET['pagina'])){
+    $pagina = $_SERVER["QUERY_STRING"];
+  }
+
 $_SESSION['Usuario'] = array();
 $login = $_POST['inputLogin'];
 $senha = $_POST['inputSenha']; 
@@ -20,7 +24,7 @@ $resultadoLogin;
     }
 
     else{
-        header('location:../index.php?pagina=home&status=logado');
+        header('location:../index.php?'.$pagina.'&status=logado');
     }
 
 ?>

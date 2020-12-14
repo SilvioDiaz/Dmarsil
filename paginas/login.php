@@ -1,4 +1,7 @@
 <?php 
+
+    $pagina = $_SERVER["QUERY_STRING"];
+
     if(isset($_GET['perfil'])){
 
     
@@ -12,8 +15,7 @@
 ?>
 
 <div class="containerLista ">
-<h3>Login</h3>
-<form class="formulario" action='./script/codigo_login.php' method='POST'>
+<form class="formulario" action='./script/codigo_login.php?<?=$pagina?>' method='POST'>
     <input type="text" id="inputLogin"  name="inputLogin" placeholder="Login" required maxlength="10"> <br>
     <input type="password" id="inputSenha" name="inputSenha" placeholder="Senha" required maxlength="15"> <br>
     <button type="submit" id="btnIncluir">Login</button>

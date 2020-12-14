@@ -18,11 +18,11 @@
 
     $consulta = mysqli_query($conexao, $query);
     $login = 'Logar';
-    $perfil = 'login';
+    $durecionamento = "href='#' data-toggle='modal' data-target='#exampleModal'";
 
     if (isset($_SESSION['Usuario'])){
         $login = $_SESSION['Usuario']['nome'];
-        $perfil = 'perfil';
+        $durecionamento = "href='index.php?pagina=perfil'";
     }else{
         
     }
@@ -95,7 +95,7 @@ if(isset($_SESSION['carrinho'])){
 
         <li class="nav-item active">
         <div class="headerBase"> 
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal"> Login</a>
+          <a class="nav-link" <?=$durecionamento?> ><?=$login?></a>
         </li>
 
 
@@ -181,10 +181,10 @@ if(isset($_SESSION['carrinho'])){
 </header>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Insira sua conta</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -193,10 +193,6 @@ if(isset($_SESSION['carrinho'])){
         <?php
             include "paginas/login.php";
         ?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

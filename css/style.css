@@ -18,11 +18,6 @@
     width: 200px;
 }
 
-.menuHeader{
-    display: flex;
-    flex-direction: column;
-}
-
 .inverter{
     flex-direction: row-reverse;
 }
@@ -44,19 +39,35 @@ td,th{
     height: 25%;
     }
 
-.navbar-brand{
-    display: flex;
-    
-}
 
 .categoria{
     display:flex;
+}
+
+
+
+/* HEADER */
+
+.menuHeader{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.navbar-brand{
+    display: flex;
+    
 }
 
 .headerBase{
     display: flex;
 
 }
+
+.modal-header{
+    align-self: center
+}
+
 
 @media screen and (max-width: 720px){
     .categoria{

@@ -20,7 +20,7 @@
             <div id="precoProduto">
                 <p>R$ <?= $linha['preco_produto'] ?></p>
                 <div id="btCompra">
-                    <a href="?pagina=carrinho&id=<?= $linha['id_produto'] ?>&acao=add">Comprar</a>
+                    <a href="?pagina=pagina_produto&id=<?= $linha['id_produto'] ?>">Comprar</a>
 
                 </div>
             </div>
@@ -50,7 +50,7 @@
             <div id="precoProduto">
                 <p>R$ <?= $linha['preco_produto'] ?></p>
                 <div id="btCompra">
-                    <a href="?pagina=carrinho&id=<?= $linha['id_produto'] ?>&acao=add">Comprar</a>
+                    <a href="?pagina=pagina_produto&id=<?= $linha['id_produto'] ?>">Comprar</a>
 
                 </div>
             </div>

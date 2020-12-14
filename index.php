@@ -49,9 +49,10 @@ switch($pagina){
     case 'loja':
         include 'paginas/loja.php';
         break;
-    case 'produto':
+    case 'pagina_produto':
         include 'paginas/pagina_produto.php';
         break;
+
 
 
         // ADMINISTRADOR
@@ -81,6 +82,7 @@ switch($pagina){
     case 'cadastro_categoria':
         include 'paginas/ADMIN/cadastro_categoria.php';
         break;
+
     
 
                 
