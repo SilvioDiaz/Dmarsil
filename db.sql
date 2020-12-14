@@ -187,6 +187,18 @@ CREATE TABLE promocao(
     PRIMARY KEY(id_promo)
 );
 
+CREATE TABLE modelo(
+	id_modelo INT AUTO_INCREMENT,
+    nome_modelo VARCHAR(50),
+    PRIMARY KEY(id_modelo)
+    );
+    
+ALTER TABLE produto ADD COLUMN id_modelo INT NOT NULL;
+ALTER TABLE produto ADD CONSTRAINT fk_modelo FOREIGN KEY (id_modelo) REFERENCES modelo (id_modelo);
+
+INSERT INTO modelo(nome_modelo) VALUES ('Masculino');
+
+
 
 
 

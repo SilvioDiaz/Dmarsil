@@ -14,6 +14,9 @@ document.title = "Cadastro de Produto"
   $query_banho = 'SELECT * FROM banho';
   $resultado_banho = mysqli_query($conexao,$query_banho);
 
+  $query_modelo = 'SELECT * FROM modelo';
+  $resultado_modelo = mysqli_query($conexao,$query_modelo);
+
   if(!isset($_GET['id'])){
     $campo['nome_produto'] = '';
     $campo['descricao_produto'] = '';
@@ -27,6 +30,7 @@ document.title = "Cadastro de Produto"
     $campo['codigo_produto'] = '';
     $campo['id_banho'] = '';
     $campo['ativo'] = '';
+    $campo['modelo'] = '';  
   }else{
     $id = $_GET['id'];
     $descricao_botao = 'Alterar Produto';
@@ -49,6 +53,7 @@ document.title = "Cadastro de Produto"
       $campo['codigo_produto'] =    $linha['codigo_produto'];
       $campo['tipo_produto'] =      $linha['tipo_produto'];
       $campo['ativo'] =             $linha['ativo'];
+      $campo['modelo'] =            $linha['id_modelo'];
   
     }
   }
@@ -60,6 +65,7 @@ document.title = "Cadastro de Produto"
 <form id="cadastro_produto" action="<?=$acao_formulario?>" method="POST" enctype="multipart/form-data">
     <input type="text" id="nome_produto"      name= "txt_nome_produto"        value ='<?=$campo['nome_produto']?>'        placeholder="Nome do Produto">      <br>
     <input type="text" id="descricao_produto" name= "txt_descricao_produto"   value = '<?=$campo['descricao_produto']?>'  placeholder="Descrição de Produto"> <br>
+    <h3>Banho</h3>
     <?php
       while($linha_banho = mysqli_fetch_array($resultado_banho)){
         if($campo['id_banho'] == $linha_banho['id_banho']){
@@ -74,6 +80,22 @@ document.title = "Cadastro de Produto"
     <?php
          }
     ?>
+<h3>Modelo</h3>
+<?php
+      while($linha_modelo = mysqli_fetch_array($resultado_modelo)){
+        if($campo['modelo'] == $linha_modelo['id_modelo']){
+            $valor ='checked';
+        }else{
+          $valor = '';
+        }
+   
+    ?>
+    <input type="radio" id="<?=$linha_modelo['id_modelo']?>'" name="rdModelo" value="<?=$linha_modelo['id_modelo']?>"  <?=$valor?>>
+      <label for="<?=$linha_modelo['id_modelo']?>"><?=$linha_modelo['nome_modelo']?></label><br>
+    <?php
+         }
+    ?>
+
 
     <input type="file" id="fileToUpload"      name= "fileToUpload"            value = '<?=$campo['img_produto']?>'        placeholder="imagem" required>      <br>
     <input type="text" id="precoBase_produto" name= "txt_precoBase_produto"   value = '<?= $campo['precoBase_produto']?>' placeholder="Preço Base">           <br>
@@ -97,6 +119,8 @@ document.title = "Cadastro de Produto"
                 <option value="<?=$linha_tipoProduto['id_tipoProduto']?>" <?=$valor?>><?=$linha_tipoProduto['nome_tipoProduto']?></option>
             <?php } ?>
     </select><br>
+
+    <h3>Produto Ativo? </h3>
 
       <?php
         if($campo['ativo'] == 1){

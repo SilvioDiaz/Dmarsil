@@ -19,6 +19,7 @@
     $codigo_produto =       $_POST['txt_codigo_produto'];
     $tipo_produto =         $_POST['cmbTipoProduto'];
     $ativo_produto =        $_POST['rdAtivo'];
+    $modelo_produto =       $_POST['rdModelo'];
 
     if($uploadOk == 0){
             $image_produto = null;
@@ -43,6 +44,7 @@
                                  peso_produto       = '$peso_produto',
                                  codigo_produto       = '$codigo_produto',
                                  tipo_produto  = '$tipo_produto',
+                                 id_modelo =     '$modelo_produto',
                                  ativo         = '$ativo_produto'
                            WHERE id_produto   = $id_produto";
 

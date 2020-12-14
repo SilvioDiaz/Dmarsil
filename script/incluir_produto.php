@@ -18,6 +18,7 @@
     $codigo_produto =       $_POST['txt_codigo_produto'];
     $tipo_produto =         $_POST['cmbTipoProduto'];
     $ativo_produto =        $_POST['rdAtivo'];
+    $modelo_produto =       $_POST['rdModelo'];    
 
     if($uploadOk == 1){
         echo 'Upload OK';
@@ -37,6 +38,7 @@
                                 tamanho_produto,
                                 peso_produto,
                                 codigo_produto,
+                                id_modelo,
                                 ativo,
                                 tipo_produto,
                                 id_banho)
@@ -49,6 +51,7 @@
                                 '$tamanho_produto',
                                 '$peso_produto',
                                 '$codigo_produto',
+                                '$modelo_produto',
                                 '$ativo_produto',
                                 '$tipo_produto',
                                 '$banho_produto'
