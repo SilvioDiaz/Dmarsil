@@ -1,3 +1,10 @@
+.container-lg{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .produto{
     display: block;
     width: auto;
@@ -44,6 +51,11 @@ td,th{
     display:flex;
 }
 
+.tabelaCarrinho{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 
 /* HEADER */

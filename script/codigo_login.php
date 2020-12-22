@@ -5,17 +5,17 @@
   }
 
   if(isset($_GET['pagina'])){
+    //Buscar query da URL
     $pagina = $_SERVER["QUERY_STRING"];
   }
 
 $_SESSION['Usuario'] = array();
 $login = $_POST['inputLogin'];
 $senha = $_POST['inputSenha']; 
-$queryLogin; 
-$resultadoLogin;
 
 
-    $queryLogin= "SELECT * from usuario WHERE login= '$login' AND senha='$senha';";
+
+    $queryLogin= "SELECT id_usuario from usuario WHERE login= '$login' AND senha='$senha';";
     $resultadoLogin = mysqli_query($conexao,$queryLogin);
     $_SESSION['Usuario'] = mysqli_fetch_array($resultadoLogin);
 

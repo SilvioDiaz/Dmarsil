@@ -4,16 +4,10 @@ document.title = 'Promoções Produto'
 
 
 <?php
-    $query = 'SELECT * FROM produto';
-
-    $consulta = mysqli_query($conexao, $query);
-
     if (isset($_SESSION['Usuario'])) {
-        if(!$_SESSION['Usuario']['id_tipo'] == 1){
+        if($resultadoHeader['id_tipo'] != 1){
             header('location:index.php?pagina=home&status=naoautorizado');
-        }else{
-        
-    }
+        }
 }
 
 ?>

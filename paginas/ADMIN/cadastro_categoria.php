@@ -4,6 +4,16 @@ document.title = "Cadastro de Categoria"
 
 <?php
 
+    $query = 'SELECT id_tipo FROM usuario WHERE id_usuario ='.$_SESSION['Usuario']['id_usuario'];
+    $consulta = mysqli_query($conexao, $query);
+    $resultado = mysqli_fetch_array($consulta);
+
+    if (isset($_SESSION['Usuario'])) {
+        if($resultado['id_tipo'] != 1){
+            header('location:index.php?pagina=home&status=naoautorizado');
+        }
+    }
+
     $campo = array();
     $descricao_botao = 'Incluir Categoria';
     $acao_formulario = './script/incluir_categoria.php';

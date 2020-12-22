@@ -3,6 +3,12 @@ document.title = "Cadastro de Produto"
 </script>
 
 <?php
+
+  if (isset($_SESSION['Usuario'])) {
+    if($resultadoHeader['id_tipo'] != 1){
+        header('location:index.php?pagina=home&status=naoautorizado');
+    }
+  }
   $campo = array();
   $descricao_botao = 'Cadastrar novo Produto';
   $acao_formulario =   './script/incluir_produto.php';

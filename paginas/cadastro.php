@@ -132,13 +132,29 @@ function caixaAlta(campo){
 
 <div class="container-centro">
 
-    <div>
-    <form action="" method="post">
-    <input placeholder = "CEP" type="text" name="cep">
-    <button id="endPesquisa" type="submit">Pesquisar Endereço</button>
-    </form>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Insira sua conta</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+          
+            <div>
+                <form action="" method="post">
+                    <input placeholder = "CEP" type="text" name="cep">
+                    <button id="endPesquisa" type="submit">Pesquisar Endereço</button>
+                </form>
+            </div>
+
+        </div>
+        </div>
     </div>
-    <br>
+    </div>
+
     <?php 
 
     if (isset($_POST['cep'])) {
@@ -207,23 +223,38 @@ function caixaAlta(campo){
 
         <input class="entrada" type="text" size=15 value="<?=$campo['telefone']?>" maxlength="14" id="txtTelefone" name="txtTelefone" placeholder="Telefone" onkeypress="verificarNumero(this,event)" required><br>
 
+        
+        <?php
+
+        if (isset($_SESSION['Usuario'])) {
+            if($resultadoHeader['id_tipo'] = 1){
+                
+        ?>
+
         <select class="entrada" name="cmbTipo">
             <option value="#">Selecione o tipo</option>
 
             <?php while($linha_tipo = mysqli_fetch_array($resultado_tipo)){
                 if($campo['tipo_usuario'] == $linha_tipo['id_tipo']){
                     $valor = 'selected';
-                } else {
+                }else {
                     $valor = '';
                 }
+                
             ?>
                 <option value="<?=$linha_tipo['id_tipo']?>" <?=$valor?>><?=$linha_tipo['descricao']?></option>
             <?php } ?>
         </select><br>
+        <?php
+            }   
+        }
+        ?>
 
         <div class="barra">
             <button class="link_botao" name=<?= $btnID?> id=<?= $btnID?> type="submit"><?=$descricao_botao?></button>
         </div>
+
+    
     </form>
 
     <script>
@@ -236,6 +267,14 @@ function caixaAlta(campo){
     $( "#txtEndereco" ).prop( "disabled", true );
     $( "#txtBairro" ).prop( "disabled", true );
     $( "#txtCidade" ).prop( "disabled", true );
+
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+    
+    $('#endPesquisa').click(function(){
+        $('#myModal').modal('toggle');
+    });
 
 </script>
 

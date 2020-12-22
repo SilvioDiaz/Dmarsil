@@ -6,9 +6,10 @@
     <div class='Home' id='produtoHome'>
 
         <?php
+
+        $query = 'SELECT * FROM produto';
+        $consulta = mysqli_query($conexao, $query);
         while ($linha = mysqli_fetch_array($consulta)) {
-
-
         ?>
 
         <div class="produto" id="tituloProduto">
@@ -29,7 +30,7 @@
     
     <?php
 
-    }
+        }
         ?>
 
     </div>

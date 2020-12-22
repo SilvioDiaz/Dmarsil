@@ -84,15 +84,25 @@ document.title = "Seu Carrinho"
 
         ?>
 
-        <form action="?pagina=carrinho&acao=up" method="post">
-
-        <p>Nome: <?=$titulo?></p>
-        Quantidade: <input type="text" size="3" name="produto[<?=$id?>]" value=<?=$qtd?>>
-        <p>Preço: <?=$preco?></p>
-        <p id= 'total'>Subtotal:<?=$subtotal?>
-        <a href="?pagina=carrinho&id=<?=$id?>&acao=del">Remover</a>
-
         
+        <div class='tabelaCarrinho'>
+            <table>
+                <form action="?pagina=carrinho&acao=up" method="post">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                        <th>Subtotal</th>
+                        <th>Ação</th>
+                    </tr>
+                    <tr>
+                        <td><?=$titulo?></td>
+                        <td><input type="text" size="3" name="produto[<?=$id?>]" value=<?=$qtd?>></td>
+                        <td><?=$preco?></td>
+                        <td><?=$subtotal?></td>
+                        <td><a href="?pagina=carrinho&id=<?=$id?>&acao=del">Remover</a></td>
+                    </tr>
+            </table>     
 <?php
     }
 
@@ -114,6 +124,7 @@ document.title = "Seu Carrinho"
             }
         ?>
         </form>
+    </div>
 <?php
     }
 ?>

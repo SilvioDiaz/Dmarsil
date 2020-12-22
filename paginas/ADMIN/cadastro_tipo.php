@@ -4,6 +4,12 @@ document.title = "Cadastro de Funcionários"
 
 <?php
 
+    if (isset($_SESSION['Usuario'])) {
+        if($resultadoHeader['id_tipo'] != 1){
+            header('location:index.php?pagina=home&status=naoautorizado');
+        }
+    }
+
     $campo = array();
     $descricao_botao = 'Incluir tipo';
     $acao_formulario = './script/incluir_tipo_usuario.php';

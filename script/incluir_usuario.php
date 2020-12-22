@@ -1,6 +1,7 @@
 <?php
     include 'banco.php';
 
+
     $login = $_POST['txtLogin'];
     $senha = $_POST['txtSenha'];
     $nome = $_POST['txtNome'];
@@ -14,7 +15,13 @@
     $estado = $_POST['cmbEstado'];
     $cep = $_POST['txtCep'];
     $telefone = $_POST['txtTelefone'];
-    $tipo = $_POST['cmbTipo'];
+
+    if(isset($_SESSION['Usuario'] )){
+        $tipo = $_POST['cmbTipo'];
+    }else{
+        $tipo = 2;
+    }
+    
 
     $query = "INSERT INTO usuario(login,
                                   senha,

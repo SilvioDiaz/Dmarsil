@@ -7,21 +7,24 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    <link rel="sylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> 
-    
     <link rel="stylesheet" type="text/css" href="css/style.css">
     
 </head>
 <body>
 
 <?php
-    $query = 'SELECT * FROM produto';
-
+  if(isset($_SESSION['Usuario'])){
+    $query = 'SELECT nome,id_tipo FROM usuario WHERE id_usuario=' . $_SESSION['Usuario']['id_usuario'];
     $consulta = mysqli_query($conexao, $query);
+    $resultadoHeader = mysqli_fetch_array($consulta);
+
+  }
+
     $login = 'Logar';
     $durecionamento = "href='#' data-toggle='modal' data-target='#exampleModal'";
 
     if (isset($_SESSION['Usuario'])){
-        $login = $_SESSION['Usuario']['nome'];
+        $login = $resultadoHeader['nome'];
         $durecionamento = "href='index.php?pagina=perfil'";
     }else{
         
@@ -85,17 +88,9 @@ if(isset($_SESSION['carrinho'])){
       <div class="menuHeader">
     <ul class="navbar-nav mr-auto">
 
-
-
-   
-        <!-- <li class="nav-item active">
-        <div class="headerBase"> 
-          <a class="nav-link" href="?pagina=<?=$perfil?>"><?=$login?></a>
-        </li> -->
-
         <li class="nav-item active">
         <div class="headerBase"> 
-          <a class="nav-link" <?=$durecionamento?> ><?=$login?></a>
+          <a id='logar' class="nav-link" <?=$durecionamento?> ><?=$login?></a>
         </li>
 
 
@@ -105,10 +100,8 @@ if(isset($_SESSION['carrinho'])){
 
             <!-- ADMIN -->
             <?php
-                if(!isset($_SESSION['Usuario'])){
-                    
-                }else{
-                    if($_SESSION['Usuario']['id_usuario'] == 1 ){
+                if(isset($_SESSION['Usuario'])){
+                    if($resultadoHeader['id_tipo'] == 1 ){
                         
 
         ?>
@@ -180,6 +173,8 @@ if(isset($_SESSION['carrinho'])){
 
 </header>
 
+
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -190,9 +185,15 @@ if(isset($_SESSION['carrinho'])){
         </button>
       </div>
       <div class="modal-body">
-        <?php
-            include "paginas/login.php";
-        ?>
+        <div id='login'>
+
+        </div>
+       <?php
+          if(!isset($_SESSION['Usuario'])){
+              include "paginas/login.php";
+          }
+            
+        ?> 
       </div>
     </div>
   </div>

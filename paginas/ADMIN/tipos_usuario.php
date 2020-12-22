@@ -3,6 +3,12 @@ document.title = "Tipos de Usuarios"
 </script>
 
 <?php
+    if (isset($_SESSION['Usuario'])) {
+        if($resultadoHeader['id_tipo'] != 1){
+            header('location:index.php?pagina=home&status=naoautorizado');
+        }
+    }
+
     $query_tipo = 'SELECT * FROM tipo_usuario';
 
     $tipo = mysqli_query($conexao, $query_tipo);
