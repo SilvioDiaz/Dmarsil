@@ -4,11 +4,8 @@ document.title = "Cadastro de Produto"
 
 <?php
 
-  if (isset($_SESSION['Usuario'])) {
-    if($resultadoHeader['id_tipo'] != 1){
-        header('location:index.php?pagina=home&status=naoautorizado');
-    }
-  }
+  include 'script/admin_only.php';
+  
   $campo = array();
   $descricao_botao = 'Cadastrar novo Produto';
   $acao_formulario =   './script/incluir_produto.php';

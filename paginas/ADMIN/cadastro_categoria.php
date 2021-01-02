@@ -8,12 +8,8 @@ document.title = "Cadastro de Categoria"
     $consulta = mysqli_query($conexao, $query);
     $resultado = mysqli_fetch_array($consulta);
 
-    if (isset($_SESSION['Usuario'])) {
-        if($resultado['id_tipo'] != 1){
-            header('location:index.php?pagina=home&status=naoautorizado');
-        }
-    }
-
+    include 'script/admin_only.php';
+    
     $campo = array();
     $descricao_botao = 'Incluir Categoria';
     $acao_formulario = './script/incluir_categoria.php';

@@ -8,11 +8,7 @@ document.title = "Usuarios Cadastrados"
 
     $consulta = mysqli_query($conexao, $query);
 
-    if (isset($_SESSION['Usuario'])) {
-        if($resultadoHeader['id_tipo'] != 1){
-            header('location:index.php?pagina=home&status=naoautorizado');
-        }
-    }
+    include 'script/admin_only.php';
 
 ?>
 <div class="containerLista">

@@ -8,13 +8,7 @@ document.title = 'Produtos'
 
     $consulta = mysqli_query($conexao, $query);
 
-    if (isset($_SESSION['Usuario'])) {
-        if(!$_SESSION['Usuario']['id_tipo'] == 1){
-            header('location:index.php?pagina=home&status=naoautorizado');
-        }else{
-        
-    }
-}
+    include 'script/admin_only.php';
 
 ?>
 

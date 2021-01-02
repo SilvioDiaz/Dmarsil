@@ -3,11 +3,7 @@ document.title = "Tipos de Usuarios"
 </script>
 
 <?php
-    if (isset($_SESSION['Usuario'])) {
-        if($resultadoHeader['id_tipo'] != 1){
-            header('location:index.php?pagina=home&status=naoautorizado');
-        }
-    }
+   include 'script/admin_only.php';
 
     $query_tipo = 'SELECT * FROM tipo_usuario';
 
