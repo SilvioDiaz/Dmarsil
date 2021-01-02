@@ -21,11 +21,11 @@
   }
 
     $login = 'Logar';
-    $durecionamento = "href='#' data-toggle='modal' data-target='#exampleModal'";
+    $direcionamento = "href='#' data-toggle='modal' data-target='#exampleModal'";
 
     if (isset($_SESSION['Usuario'])){
         $login = $resultadoHeader['nome'];
-        $durecionamento = "href='index.php?pagina=perfil'";
+        $direcionamento = "href='index.php?pagina=perfil'";
     }else{
         
     }
@@ -90,44 +90,9 @@ if(isset($_SESSION['carrinho'])){
 
         <li class="nav-item active">
         <div class="headerBase"> 
-          <a id='logar' class="nav-link" <?=$durecionamento?> ><?=$login?></a>
+          <a id='logar' class="nav-link" <?=$direcionamento?> ><?=$login?></a>
         </li>
 
-
-        <li class="nav-item active">
-        <a class="nav-link" href="?pagina=contato">Contatos</a>
-        </li>
-
-            <!-- ADMIN -->
-            <?php
-                if(isset($_SESSION['Usuario'])){
-                    if($resultadoHeader['id_tipo'] == 1 ){
-                        
-
-        ?>
-
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Admin
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item"  href="?pagina=cadastro_produtos">Cadastro de Produtos</a>
-        <a class="dropdown-item"  href="?pagina=tipos_usuario">Tipos de Usuario</a>
-        <a class="dropdown-item"  href="?pagina=usuarios">Usuarios</a>
-        <a class="dropdown-item"  href="?pagina=pedidos"> Pedidos </a>
-        <a class="dropdown-item"  href="?pagina=produtos"> Produtos </a>
-        <a class="dropdown-item"  href="?pagina=cadastropromo"> Promoções </a>
-        <a class="dropdown-item"  href="?pagina=categorias">Categorias</a>
-
-        </div>
-      </li>
-
-            <?php
-            }
-        }        
-        ?>
-     </ul>
         <div class="navbar-text ml-auto py-0 px-lg-2">
           <ul class= "categoria">
             <li class="nav-item active">
@@ -170,6 +135,64 @@ if(isset($_SESSION['carrinho'])){
 
     </div>
 
+<!-- ADMIN -->
+<?php
+if(isset($_SESSION['Usuario'])){
+    if($resultadoHeader['id_tipo'] == 1 ){
+        
+?>
+
+<div class="headerAdmin">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="?pagina=cadastro_produtos">Cadastrar Produto<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="?pagina=usuarios">Usuarios</a>
+      </li>
+
+      <?php
+
+        if(isset($_GET['pagina'])){
+          if ($_GET['pagina'] == 'pagina_produto'){
+              $id_produto = $_GET['id'];  
+      
+      ?>
+      <li class="nav-item active">
+        <a class="nav-link" href="?pagina=cadastro_produtos&id=<?=$id_produto?>">Editar Produto</a>
+      </li>
+
+      <?php
+            } 
+          }
+      ?>
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Admin
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item"  href="?pagina=tipos_usuario">Tipos de Usuario</a>
+        <a class="dropdown-item"  href="?pagina=pedidos"> Pedidos </a>
+        <a class="dropdown-item"  href="?pagina=produtos"> Produtos </a>
+        <a class="dropdown-item"  href="?pagina=cadastropromo"> Promoções </a>
+        <a class="dropdown-item"  href="?pagina=categorias">Categorias</a>
+
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+</div>
+
+
+<?php
+}
+}        
+?>
 
 </header>
 
