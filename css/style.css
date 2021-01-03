@@ -38,14 +38,18 @@ td,th{
 .containerLista{
     width: 100%;
     display: flex;
-  
     flex-direction: column;
     padding: 2rem;
 }
 
-.adminUsuario{
+.adminArea{
     display: flex;
     justify-content: center;
+}
+
+.catProduto{
+    display: flex;
+    flex-direction: column;
 }
 
 .imgTabela{
@@ -65,7 +69,7 @@ td,th{
 
 .tabela{
     padding: 2rem;
-    margin: 2rem;
+    margin: 0.5rem 2rem 0 2rem;
 }
 
 

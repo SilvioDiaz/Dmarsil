@@ -21,12 +21,12 @@ document.title = "Cadastro de Funcionários"
             $acao_formulario = './script/incluir_tipo_usuario.php';
             $titulo_pagina = 'Cadastro de tipo de Usuario';
             break;
-        case 'banho':
+        case 'cadastro_banho':
             $acao_formulario = './script/incluir_banho.php';
             $titulo_pagina = 'Cadastro de Banho';
             break;
-        case 'modelo':
-            $acao_formulario = './script/incluir_tipo_usuario.php';
+        case 'cadastro_modelo':
+            $acao_formulario = './script/incluir_modelo.php';
             $titulo_pagina = 'Cadastro de Modelo';
             break;
         case 'status':
@@ -40,7 +40,6 @@ document.title = "Cadastro de Funcionários"
         $id = $_GET['id_categoria'];
         $acao_formulario = './script/alterar_categoria.php?id='.$id;
         $titulo_pagina = 'Alterar Categoria';
-        $descricao_botao = 'Alterar';
         $descricao = "nome_tipoProduto";
         $alterar = true;
 
@@ -52,7 +51,6 @@ document.title = "Cadastro de Funcionários"
         $id = $_GET['id_tipo'];
         $acao_formulario = './script/alterar_tipo_usuario.php?id='.$id;
         $titulo_pagina = 'Alterar tipo de Usuario';
-        $descricao_botao = 'Alterar';
         $descricao = "descricao";
         $alterar = true;
 
@@ -63,7 +61,6 @@ document.title = "Cadastro de Funcionários"
         $id = $_GET['id_banho'];
         $acao_formulario = './script/alterar_banho.php?id='.$id;
         $titulo_pagina = 'Alterar Banho';
-        $descricao_botao = 'Alterar';
         $descricao = "nome_banho";
         $alterar = true;
 
@@ -72,21 +69,19 @@ document.title = "Cadastro de Funcionários"
 
     if(isset($_GET['id_modelo'])){
         $id = $_GET['id_modelo'];
-        $acao_formulario = './script/alterar_tipo_usuario.php?id='.$id;
+        $acao_formulario = './script/alterar_modelo.php?id='.$id;
         $titulo_pagina = 'Alterar Modelo';
-        $descricao_botao = 'Alterar';
         $descricao = "nome_modelo";
         $alterar = true;
 
         $query = "SELECT * FROM modelo WHERE id_modelo = $id";
-
+        
     }
 
     if(isset($_GET['id_status'])){
         $id = $_GET['id_status'];
         $acao_formulario = './script/alterar_tipo_usuario.php?id='.$id;
         $titulo_pagina = 'Alterar Status';
-        $descricao_botao = 'Alterar';
         $descricao = "descricao_status";
         $alterar = true;
 
@@ -95,15 +90,16 @@ document.title = "Cadastro de Funcionários"
 
     $campo = array();
     $descricao_botao = 'Incluir';
-    $descricao = "";
+   
   
     //CHAMANDO QUERY SE FOR ALTERAR
 
     if(!$alterar){
         $campo['descricao'] ='';
+        $descricao = "";
     }else{
         $resultado = mysqli_query($conexao, $query);
-
+        $descricao_botao = 'Alterar';
         while($linha = mysqli_fetch_array($resultado)){
             $campo['descricao'] = $linha[$descricao];
         };

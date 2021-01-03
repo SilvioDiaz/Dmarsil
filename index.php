@@ -62,7 +62,12 @@ switch($pagina){
     case 'cadastro_categoria':
         include 'paginas/ADMIN/cadastro_tipo.php';
         break;    
-
+    case 'cadastro_banho':
+        include 'paginas/ADMIN/cadastro_tipo.php';
+        break; 
+    case 'cadastro_modelo':
+        include 'paginas/ADMIN/cadastro_tipo.php';
+        break; 
     case 'cadastro_produtos':
         include 'paginas/ADMIN/cadastroproduto.php';
         break;
