@@ -39,7 +39,11 @@ td,th{
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 2rem;
+}
+
+.adminUsuario{
+    display: flex;
 }
 
 .imgTabela{
@@ -55,6 +59,11 @@ td,th{
     display:flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.tabela{
+    padding: 2rem;
+    margin: 2rem;
 }
 
 
