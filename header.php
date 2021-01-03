@@ -70,18 +70,7 @@ if(isset($_SESSION['carrinho'])){
     <img src="img/Dmarsil.svg" width="100" height="100" class="d-inline-block align-top" alt="Logo Dmarsil">
   </a>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-
-
-
-  <div class="collapse navbar-collapse inverter" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
 
@@ -145,44 +134,45 @@ if(isset($_SESSION['Usuario'])){
 <div class="headerAdmin">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="?pagina=cadastro_produtos">Cadastrar Produto<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="?pagina=usuarios">Usuarios</a>
-      </li>
+    <div class="container">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="?pagina=cadastro_produtos">Cadastrar Produto<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="?pagina=usuarios">Usuarios</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="?pagina=produtos"> Produtos</a>
+        </li>
 
-      <?php
+        <?php
 
-        if(isset($_GET['pagina'])){
-          if ($_GET['pagina'] == 'pagina_produto'){
-              $id_produto = $_GET['id'];  
-      
-      ?>
-      <li class="nav-item active">
-        <a class="nav-link" href="?pagina=cadastro_produtos&id=<?=$id_produto?>">Editar Produto</a>
-      </li>
+          if(isset($_GET['pagina'])){
+            if ($_GET['pagina'] == 'pagina_produto'){
+                $id_produto = $_GET['id'];  
+        
+        ?>
+        <li class="nav-item active">
+          <a class="nav-link" href="?pagina=cadastro_produtos&id=<?=$id_produto?>">Editar Produto</a>
+        </li>
 
-      <?php
-            } 
-          }
-      ?>
-      <li class="nav-item dropdown active">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Admin
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item"  href="?pagina=tipos_usuario">Tipos de Usuario</a>
-        <a class="dropdown-item"  href="?pagina=pedidos"> Pedidos </a>
-        <a class="dropdown-item"  href="?pagina=produtos"> Produtos </a>
-        <a class="dropdown-item"  href="?pagina=cadastropromo"> Promoções </a>
-        <a class="dropdown-item"  href="?pagina=categorias">Categorias</a>
+        <?php
+              } 
+            }
+        ?>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Admin
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item"  href="?pagina=pedidos"> Pedidos </a>
+          <a class="dropdown-item"  href="?pagina=cadastropromo"> Promoções </a>
+          </div>
+        </li>
 
-        </div>
-      </li>
-
-    </ul>
+      </ul>
+    </div>
   </div>
 </nav>
 

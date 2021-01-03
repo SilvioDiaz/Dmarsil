@@ -36,7 +36,7 @@ document.title = "Usuarios Cadastrados"
 
                             ?>
                         <tr>
-                        <td><?=$linha['descricao']?>'</td>
+                        <td><?=$linha['descricao']?></td>
                         <td class=tabela-celula><a href="?pagina=cadastro_funcionarios&id=<?=$linha['id_tipo']?>">Editar</td>
                         <td class=tabela-celula><a href="./script/excluir_tipo_usuario.php?id=<?$linha['id_tipo']?>">Deletar</a></td>
                         </tr>
