@@ -34,7 +34,7 @@ document.title = 'Produtos'
                     ?>
                         <tr>
                         <td><?=$linha['nome_tipoProduto']?></td>
-                        <td class=tabela-celula><a href="?pagina=cadastro_categoria&id=<?=$linha['id_tipoProduto']?>">Editar</td>
+                        <td class=tabela-celula><a href="?pagina=cadastro_categoria&id_categoria=<?=$linha['id_tipoProduto']?>">Editar</td>
                         <td class=tabela-celula><a href="./script/excluir_categoria.php?id=<?=$linha['id_tipoProduto']?>">Deletar</a></td>
                         </tr>
                 <?php

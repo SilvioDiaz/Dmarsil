@@ -14,13 +14,19 @@ $id = $_SESSION['Usuario']['id_usuario'];
 
 <?php
 while($linha = mysqli_fetch_array($consulta)){
+    if($linha['numero'] == "0"){
+        $linha['numero'] = "Sem Número";
+    }
 ?>
+
+<div class="container"></div>
 
 <h5>Nome:</h5> <p><?=$linha['nome']?></p>
 <h5>E-mail:</h5> <p><?=$linha['email']?></p>
 <h5>Nascimento:</h5> <p><?=$linha['nascimento']?></p>
 <h5>Endereço:</h5> <p><?=$linha['endereco']?></p>
 <h5>Numero:</h5> <p><?=$linha['numero']?></p>
+<h5>Complemento:</h5> <p><?=$linha['complemento']?></p>
 <h5>Bairro:</h5> <p><?=$linha['bairro']?></p>
 <h5>Cidade:</h5> <p><?=$linha['cidade']?></p>
 <h5>Cep:</h5> <p><?=$linha['cep']?></p>
@@ -31,6 +37,6 @@ while($linha = mysqli_fetch_array($consulta)){
 <?php
 }
 ?>
-
+</div>
 
 <a href="./script/logoff.php">Deslogar</a>

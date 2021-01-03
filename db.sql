@@ -137,6 +137,7 @@ valor_total DECIMAL(9,2),
 PRIMARY KEY(id_pedidos)
 );
 
+
 CREATE TABLE item_pedido(
 	id_item INT AUTO_INCREMENT,
 	qtd INT,
@@ -197,6 +198,23 @@ ALTER TABLE produto ADD COLUMN id_modelo INT NOT NULL;
 ALTER TABLE produto ADD CONSTRAINT fk_modelo FOREIGN KEY (id_modelo) REFERENCES modelo (id_modelo);
 
 INSERT INTO modelo(nome_modelo) VALUES ('Masculino');
+INSERT INTO modelo(nome_modelo) VALUES ('Feminino');
+INSERT INTO modelo(nome_modelo) VALUES ('Infantil');
+
+CREATE TABLE status_pedido(
+	id_status INT auto_increment,
+    descricao_status VARCHAR(20),
+    primary key(id_status)
+
+);
+
+ALTER TABLE pedidos ADD COLUMN id_status INT NOT NULL;
+ALTER TABLE pedidos ADD CONSTRAINT fk_status FOREIGN KEY (id_status) REFERENCES status_pedido(id_status); 
+
+INSERT INTO status_pedido(descricao_status) VALUES ('Pagamento Efetuado');
+INSERT INTO status_pedido(descricao_status) VALUES ('Pedido Enviado');
+INSERT INTO status_pedido(descricao_status) VALUES ('Pedido Entregue');
+INSERT INTO status_pedido(descricao_status) VALUES ('Pedido Cancelado');
 
 
 
