@@ -4,8 +4,13 @@ document.title = "Usuarios Cadastrados"
 
 
 <?php
+    if(!isset($_GET['tipoid'])){
     $query = 'SELECT * FROM usuario';
+    }else{
+        $tipoid = $_GET['tipoid'];
+        $query = 'SELECT * FROM usuario WHERE id_tipo ='.$tipoid;
 
+    }
     $consulta = mysqli_query($conexao, $query);
 
     $query_tipo = 'SELECT * FROM tipo_usuario';
@@ -16,11 +21,13 @@ document.title = "Usuarios Cadastrados"
     include 'script/admin_only.php';
 
 ?>
+
+
 <div class="containerLista">
 
-    <div class="adminUsuario">
+    <div class="adminArea">
 
-        <div id="tabelaUsuario" class="tabela">
+        <div id="tabelaTipo_usuario" class="col-3">
          
             <h1>Lista de Tipos de usuário</h1>
             <a class="link_botao" href="?pagina=cadastro_funcionarios">Cadastrar novo tipo</a>
@@ -36,7 +43,7 @@ document.title = "Usuarios Cadastrados"
 
                             ?>
                         <tr>
-                        <td><?=$linha['descricao']?></td>
+                        <td><a href="?pagina=usuarios&tipoid=<?=$linha['id_tipo']?>"><?=$linha['descricao']?></a></td>
                         <td class=tabela-celula><a href="?pagina=cadastro_funcionarios&id_tipo=<?=$linha['id_tipo']?>">Editar</td>
                         <td class=tabela-celula><a href="./script/excluir_tipo_usuario.php?id=<?$linha['id_tipo']?>">Deletar</a></td>
                         </tr>
@@ -46,7 +53,7 @@ document.title = "Usuarios Cadastrados"
                 </table>
         </div>
 
-        <div id="tabelaUsuario" class="tabela">
+        <div id="tabelaUsuario" class="tabela col-9">
         <h1>Usuarios Cadastrados</h1>
         <a class="link_botao" href="?pagina=cadastro">Cadastrar novo usuário</a>
             <table cellspacing=0>
