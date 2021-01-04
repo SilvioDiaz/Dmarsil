@@ -96,6 +96,12 @@ td,th{
     align-self: center
 }
 
+.selecaoProduto{
+    display: flex;
+    justify-content: center;
+    margin: 1rem 2rem ;
+}
+
 
 @media screen and (max-width: 720px){
     .categoria{
