@@ -1,7 +1,7 @@
 <?php
     include 'banco.php';
 
-    $tipo_produto = $_POST['txtCategoria'];
+    $tipo_produto = $_POST['txtDescricao'];
 
     $query = "INSERT INTO tipo_produto(nome_tipoProduto)
                    VALUES('$tipo_produto');";
