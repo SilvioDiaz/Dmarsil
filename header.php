@@ -69,6 +69,9 @@ if(isset($_SESSION['carrinho'])){
   <a class="navbar-brand" href="?pagina=home">
     <img src="img/Dmarsil.svg" width="100" height="100" class="d-inline-block align-top" alt="Logo Dmarsil">
   </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
