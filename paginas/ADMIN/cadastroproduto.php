@@ -67,8 +67,10 @@ document.title = "Cadastro de Produto"
 <div class="cadastroProduto">
   <form id="cadastro_produto" action="<?=$acao_formulario?>" method="POST" enctype="multipart/form-data">
     <div id="principal_cadastroProduto">
-      <input type="text" id="nome_produto"      name= "txt_nome_produto"        value ='<?=$campo['nome_produto']?>'        placeholder="Nome do Produto">      <br>
-      <input type="file" id="fileToUpload"      name= "fileToUpload"            value = '<?=$campo['img_produto']?>'        placeholder="imagem" required>      <br>
+      <div class="nome_imagem">
+        <input type="text" id="nome_produto"      name= "txt_nome_produto"        value ='<?=$campo['nome_produto']?>'        placeholder="Nome do Produto">      <br>
+        <input type="file" id="fileToUpload"      name= "fileToUpload"            value = '<?=$campo['img_produto']?>'        placeholder="imagem" required>      <br>
+      </div>
       <input type="text" id="descricao_produto" name= "txt_descricao_produto"   value = '<?=$campo['descricao_produto']?>'  placeholder="Descrição de Produto"> <br>
 
       <select class="entrada" name="cmbTipoProduto">
