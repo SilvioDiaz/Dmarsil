@@ -64,86 +64,102 @@ document.title = "Cadastro de Produto"
 ?>
 
 
+<div class="cadastroProduto">
+  <form id="cadastro_produto" action="<?=$acao_formulario?>" method="POST" enctype="multipart/form-data">
+    <div id="principal_cadastroProduto">
+      <input type="text" id="nome_produto"      name= "txt_nome_produto"        value ='<?=$campo['nome_produto']?>'        placeholder="Nome do Produto">      <br>
+      <input type="file" id="fileToUpload"      name= "fileToUpload"            value = '<?=$campo['img_produto']?>'        placeholder="imagem" required>      <br>
+      <input type="text" id="descricao_produto" name= "txt_descricao_produto"   value = '<?=$campo['descricao_produto']?>'  placeholder="Descrição de Produto"> <br>
 
-<form id="cadastro_produto" action="<?=$acao_formulario?>" method="POST" enctype="multipart/form-data">
-    <input type="text" id="nome_produto"      name= "txt_nome_produto"        value ='<?=$campo['nome_produto']?>'        placeholder="Nome do Produto">      <br>
-    <input type="text" id="descricao_produto" name= "txt_descricao_produto"   value = '<?=$campo['descricao_produto']?>'  placeholder="Descrição de Produto"> <br>
-    <h3>Banho</h3>
-    <?php
-      while($linha_banho = mysqli_fetch_array($resultado_banho)){
-        if($campo['id_banho'] == $linha_banho['id_banho']){
-            $valor ='checked';
-        }else{
-          $valor = '';
-        }
-   
-    ?>
-    <input type="radio" id="<?=$linha_banho['id_banho']?>'" name="rdBanho" value="<?=$linha_banho['id_banho']?>"  <?=$valor?>>
-      <label for="<?=$linha_banho['id_banho']?>"><?=$linha_banho['nome_banho']?></label><br>
-    <?php
-         }
-    ?>
-<h3>Modelo</h3>
-<?php
-      while($linha_modelo = mysqli_fetch_array($resultado_modelo)){
-        if($campo['modelo'] == $linha_modelo['id_modelo']){
-            $valor ='checked';
-        }else{
-          $valor = '';
-        }
-   
-    ?>
-    <input type="radio" id="<?=$linha_modelo['id_modelo']?>'" name="rdModelo" value="<?=$linha_modelo['id_modelo']?>"  <?=$valor?>>
-      <label for="<?=$linha_modelo['id_modelo']?>"><?=$linha_modelo['nome_modelo']?></label><br>
-    <?php
-         }
-    ?>
+      <select class="entrada" name="cmbTipoProduto">
+              <option value="#">Selecione o tipo de Produto:</option>
 
+              <?php while($linha_tipoProduto = mysqli_fetch_array($resultado_tipo)){
+                          PRINT_R($linha_tipoProduto);
+                  if($campo['tipo_produto'] == $linha_tipoProduto['id_tipoProduto']){
+                      $valor = 'selected';
+                  } else {
+                      $valor = '';
+                  }
+              ?>
+                  <option value="<?=$linha_tipoProduto['id_tipoProduto']?>" <?=$valor?>><?=$linha_tipoProduto['nome_tipoProduto']?></option>
+              <?php } ?>
+      </select><br>
 
-    <input type="file" id="fileToUpload"      name= "fileToUpload"            value = '<?=$campo['img_produto']?>'        placeholder="imagem" required>      <br>
-    <input type="text" id="precoBase_produto" name= "txt_precoBase_produto"   value = '<?= $campo['precoBase_produto']?>' placeholder="Preço Base">           <br>
-    <input type="text" id="preco_produto"     name= "txt_preco_produto"       value = '<?=$campo['preco_produto']?>'      placeholder="Preço do Produto">     <br>
-    <input type="text" id="estoque_produto"   name= "txt_estoque_produto"     value = '<?=$campo['estoque_produto']?>'    placeholder="Estoque">              <br>
-    <input type="text" id="tamanho_produto"   name= "txt_tamanho_produto"     value = '<?=$campo['tamanho_produto']?>'    placeholder="Tamanho do Produto">   <br>
-    <input type="text" id="peso_produto"      name= "txt_peso_produto"        value = '<?=$campo['peso_produto']?>'       placeholder="Peso do Produto">      <br>
-    <input type="text" id="codigo_produto"    name= "txt_codigo_produto"      value = '<?=$campo['codigo_produto']?>'     placeholder="Código de Produto">    <br>
-
-    <select class="entrada" name="cmbTipoProduto">
-            <option value="#">Selecione o tipo de Produto:</option>
-
-            <?php while($linha_tipoProduto = mysqli_fetch_array($resultado_tipo)){
-                        PRINT_R($linha_tipoProduto);
-                if($campo['tipo_produto'] == $linha_tipoProduto['id_tipoProduto']){
-                    $valor = 'selected';
-                } else {
-                    $valor = '';
-                }
-            ?>
-                <option value="<?=$linha_tipoProduto['id_tipoProduto']?>" <?=$valor?>><?=$linha_tipoProduto['nome_tipoProduto']?></option>
-            <?php } ?>
-    </select><br>
-
-    <h3>Produto Ativo? </h3>
-
+      <h3>Modelo</h3>
       <?php
-        if($campo['ativo'] == 1){
-          $valorAtivo = 'checked';
-          $valorInativo = '';
-        }else{
-          $valorInativo = 'checked';
-          $valorAtivo = '';
-        }
-      ?>
-        <input type="radio" id="ativar'" name="rdAtivo" value="1" <?=$valorAtivo?>>
-          <label for="ativar">Ativo</label><br>
-
-        <input type="radio" id="desativar'" name="rdAtivo" value="0" <?=$valorInativo?>>
-          <label for="ativar">Inativo</label><br>
-
-
-              
-    <button type ='submit'><?=$descricao_botao?></button>
-
+        while($linha_modelo = mysqli_fetch_array($resultado_modelo)){
+          if($campo['modelo'] == $linha_modelo['id_modelo']){
+              $valor ='checked';
+          }else{
+            $valor = '';
+          }
     
+      ?>
+      <input type="radio" id="<?=$linha_modelo['id_modelo']?>'" name="rdModelo" value="<?=$linha_modelo['id_modelo']?>"  <?=$valor?>>
+        <label for="<?=$linha_modelo['id_modelo']?>"><?=$linha_modelo['nome_modelo']?></label><br>
+      <?php
+          }
+      ?>
 
-</form>
+      <h3>Banho</h3>
+      <?php
+        while($linha_banho = mysqli_fetch_array($resultado_banho)){
+          if($campo['id_banho'] == $linha_banho['id_banho']){
+              $valor ='checked';
+          }else{
+            $valor = '';
+          }
+    
+      ?>
+      <input type="radio" id="<?=$linha_banho['id_banho']?>'" name="rdBanho" value="<?=$linha_banho['id_banho']?>"  <?=$valor?>>
+        <label for="<?=$linha_banho['id_banho']?>"><?=$linha_banho['nome_banho']?></label><br>
+      <?php
+          }
+      ?>
+
+    </div>
+
+
+
+
+      <div id="precoCadastro">
+        <input type="text" id="precoBase_produto" name= "txt_precoBase_produto"   value = '<?= $campo['precoBase_produto']?>' placeholder="Preço Base">           <br>
+        <input type="text" id="preco_produto"     name= "txt_preco_produto"       value = '<?=$campo['preco_produto']?>'      placeholder="Preço do Produto">     <br>
+      </div>
+      <div id="detalheCadastro">
+        <input type="text" id="tamanho_produto"   name= "txt_tamanho_produto"     value = '<?=$campo['tamanho_produto']?>'    placeholder="Tamanho do Produto">   <br>
+        <input type="text" id="peso_produto"      name= "txt_peso_produto"        value = '<?=$campo['peso_produto']?>'       placeholder="Peso do Produto">      <br>
+        <input type="text" id="estoque_produto"   name= "txt_estoque_produto"     value = '<?=$campo['estoque_produto']?>'    placeholder="Estoque">              <br>
+      </div>
+      
+
+      
+
+
+
+      <h3>Produto Ativo? </h3>
+
+        <?php
+          if($campo['ativo'] == 1){
+            $valorAtivo = 'checked';
+            $valorInativo = '';
+          }else{
+            $valorInativo = 'checked';
+            $valorAtivo = '';
+          }
+        ?>
+          <input type="radio" id="ativar'" name="rdAtivo" value="1" <?=$valorAtivo?>>
+            <label for="ativar">Ativo</label><br>
+
+          <input type="radio" id="desativar'" name="rdAtivo" value="0" <?=$valorInativo?>>
+            <label for="ativar">Inativo</label><br>
+
+      <div id="finalizadorCad_produto">
+        <input type="text" id="codigo_produto"    name= "txt_codigo_produto"      value = '<?=$campo['codigo_produto']?>'     placeholder="Código de Produto">    <br>
+        <button type ='submit'><?=$descricao_botao?></button>
+      </div>
+      
+
+  </form>
+</div>
