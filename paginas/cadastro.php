@@ -130,7 +130,7 @@ function caixaAlta(campo){
 
 
 
-<div class="container-centro">
+<div class="cadastro container-centro">
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">

@@ -120,12 +120,86 @@ td,th{
     margin: 0.1rem 0;
 }
 
-#cadastro_produto{
-    background-color: gray;
+.cadastro{
+    border: solid black;
+    background: #f8f9fa;
     width: 50%;
     padding: 2rem;
 }
 
+.cadastro.input{
+    margin: 1rem 0;
+}
+
+#descricao_produto{
+    width: 100%;
+    height: 100%;
+}
+
+#nome_produto{
+    width: 50%;
+}
+
+#modelo_banho{
+    display:flex;
+    align-items: center;
+}
+
+#nome_tipo{
+    display: flex;
+    justify-content: space-between;
+}
+
+#codigo_cadastro{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#codigo_produto{
+    width: 10%;
+}
+
+#informacoes{
+    display: flex;
+}
+
+#estoque_produto{
+   width: 10%;
+}
+
+#finalizadorCad_produto{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.input_cadastro{
+    margin: 1rem 0;
+}
+
+.radio_lateral{
+    display: flex;
+}
+
+.radio_cadastro{
+    margin-right: 0.5rem;
+}
+
+.preco_input{
+    width: 80%;
+}
+
+input[type='file'] {
+    display: none
+  }
+  
+  /* Aparência que terá o seletor de arquivo */
+  .btn {
+    background-color: pink;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    padding: 6px 20px
+  }
 
 
 
