@@ -167,13 +167,18 @@ td,th{
    width: 10%;
 }
 
+#cadastro_usuario{
+    display: flex;
+    justify-content: center;
+}
+
 #finalizadorCad_produto{
     display: flex;
     flex-direction: row-reverse;
 }
 
 .input_cadastro{
-    margin: 1rem 0;
+    margin: 0.5rem 0;
 }
 
 .radio_lateral{
@@ -186,6 +191,11 @@ td,th{
 
 .preco_input{
     width: 80%;
+}
+
+.barra{
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 input[type='file'] {
