@@ -136,7 +136,7 @@ function caixaAlta(campo){
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Insira sua conta</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Insira seu CEP</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -154,6 +154,7 @@ function caixaAlta(campo){
         </div>
     </div>
     </div>
+
 
     <?php 
 
@@ -193,12 +194,17 @@ function caixaAlta(campo){
     ?>
 
     <form id="tela" action="<?=$acao_formulario?>" method="POST">
+        <div class="col-12">
+            <input class="entrada" type="email" size=30 value="<?=$campo['email']?>" maxlength="30" id="txtEmail" name="txtEmail" placeholder="E-mail"required><br>
+        </div>
+        <div class="col-12 input_cadastro">
+            <input class="entrada" type="text" size=50 value="<?=$campo['nome']?>" maxlength="50" id="txtNome" name="txtNome" placeholder="Nome do usuário" onkeyup="caixaAlta(this)" required><br>
+            <input class="entrada" type="text" size=15 value="<?=$campo['nascimento']?>" id="txtNascimento" name="txtNascimento" placeholder="Data de Nascimento" maxlength="10" onkeypress="verificarNumero(this,event)"  onkeypress="formatarData(this,event)" required ><br>
+        </div>
+
         <input class="entrada entrada-top" size=10 value="<?=$campo['login']?>" maxlength="10" type="text" id="txtLogin" name="txtLogin" placeholder="Login" required><br>
         <input class="entrada" type="password" size=10 value="<?=$campo['senha']?>" maxlength="15" id="txtSenha" name="txtSenha" placeholder="Senha" required><br>
-        <input class="entrada" type="text" size=50 value="<?=$campo['nome']?>" maxlength="50" id="txtNome" name="txtNome" placeholder="Nome do usuário" onkeyup="caixaAlta(this)" required><br>
-        <input class="entrada" type="email" size=30 value="<?=$campo['email']?>" maxlength="30" id="txtEmail" name="txtEmail" placeholder="E-mail"required><br>
-        <input class="entrada" type="text" size=15 value="<?=$campo['nascimento']?>" id="txtNascimento" name="txtNascimento" placeholder="Data de Nascimento" maxlength="10" onkeypress="verificarNumero(this,event)"  onkeypress="formatarData(this,event)" required ><br>
-    
+        
         <input readonly class="entrada" type="text" maxlength="10" size=10 value="<?=$campo['cep']?>" id="txtCep" name="txtCep" placeholder="CEP" onkeypress="verificarNumero(this,event)" required><br>
         <input readonly class="entrada" type="text" size=50 value="<?=$campo['endereco']?>" maxlength="40" id="txtEndereco" name="txtEndereco" placeholder="Endereço (Rua, Praça, etc...)" onkeyup="caixaAlta(this)" required><br>
         <input class="entrada" type="text" size=5 value="<?=$campo['numero']?>" maxlength="8" id="txtNumero" name="txtNumero" placeholder="Numero" onkeypress="verificarNumero(this,event)"><br>
@@ -259,8 +265,10 @@ function caixaAlta(campo){
 
     <script>
     
-    if($('txtCep').val() ) {
-         alert('teste');
+    if($("#txtCep").val() == ""){
+        $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
     }
     
     $( "#txtCep").prop( "disabled", true );
@@ -268,9 +276,7 @@ function caixaAlta(campo){
     $( "#txtBairro" ).prop( "disabled", true );
     $( "#txtCidade" ).prop( "disabled", true );
 
-    $(window).on('load',function(){
-        $('#myModal').modal('show');
-    });
+    
     
     $('#endPesquisa').click(function(){
         $('#myModal').modal('toggle');
