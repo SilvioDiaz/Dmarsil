@@ -196,49 +196,61 @@ function caixaAlta(campo){
         <div class="cadastro container-centro">
 
             <form id="tela" action="<?=$acao_formulario?>" method="POST">
+
+                <input class="input_cadastro entrada" type="email" size=30 value="<?=$campo['email']?>" maxlength="30" id="txtEmail" name="txtEmail" placeholder="E-mail"required><br>
+
+                <input class="input_cadastro entrada col-8" type="text" size=50 value="<?=$campo['nome']?>" maxlength="50" id="txtNome" name="txtNome" placeholder="Nome do usuário" onkeyup="caixaAlta(this)" required><br>
+                <input class="input_cadastro entrada col-5" type="password" size=10 value="<?=$campo['senha']?>" maxlength="15" id="txtSenha" name="txtSenha" placeholder="Senha" required><br>
+
+                <input class="input_cadastro entrada col-4" type="text" size=15 value="<?=$campo['nascimento']?>" id="txtNascimento" name="txtNascimento" placeholder="Data de Nascimento" maxlength="10" onkeypress="verificarNumero(this,event)"  onkeypress="formatarData(this,event)" required ><br>
+      
+                <input class="input_cadastro entrada entrada-top" size=10 value="<?=$campo['login']?>" maxlength="10" type="text" id="txtLogin" name="txtLogin" placeholder="Login" required><br>
+
                 <div class="col-12">
-                    <input class="input_cadastro entrada" type="email" size=30 value="<?=$campo['email']?>" maxlength="30" id="txtEmail" name="txtEmail" placeholder="E-mail"required><br>
+                    <div class="row">
+                        <input class="input_cadastro entrada col-5" type="text" size=15 value="<?=$campo['telefone']?>" maxlength="14" id="txtTelefone" name="txtTelefone" placeholder="Telefone" onkeypress="verificarNumero(this,event)" required><br>
+                    </div>
                 </div>
-                <div class="col-12 input_cadastro input_cadastro">
-                    <input class="input_cadastro entrada" type="text" size=50 value="<?=$campo['nome']?>" maxlength="50" id="txtNome" name="txtNome" placeholder="Nome do usuário" onkeyup="caixaAlta(this)" required><br>
-                    <input class="input_cadastro entrada" type="text" size=15 value="<?=$campo['nascimento']?>" id="txtNascimento" name="txtNascimento" placeholder="Data de Nascimento" maxlength="10" onkeypress="verificarNumero(this,event)"  onkeypress="formatarData(this,event)" required ><br>
-                </div>
+               
+                <input readonly class="input_cadastro entrada" type="text" maxlength="10" size=10 value="<?=$campo['cep']?>" id="txtCep" name="txtCep" placeholder="CEP" onkeypress="verificarNumero(this,event)" required><br>
+  
                 <div class="col-12">
-                    <input class="input_cadastro entrada entrada-top" size=10 value="<?=$campo['login']?>" maxlength="10" type="text" id="txtLogin" name="txtLogin" placeholder="Login" required><br>
+                    <div class="row">
+                        <input readonly class="input_cadastro entrada" type="text" size=50 value="<?=$campo['endereco']?>" maxlength="40" id="txtEndereco" name="txtEndereco" placeholder="Endereço (Rua, Praça, etc...)" onkeyup="caixaAlta(this)" required><br>
+                        <input class="input_cadastro entrada" type="text" size=5 value="<?=$campo['numero']?>" maxlength="8" id="txtNumero" name="txtNumero" placeholder="Numero" onkeypress="verificarNumero(this,event)"><br>
+                    </div>
                 </div>
+
                 <div class="col-12">
-                    <input class="input_cadastro entrada" type="text" size=15 value="<?=$campo['telefone']?>" maxlength="14" id="txtTelefone" name="txtTelefone" placeholder="Telefone" onkeypress="verificarNumero(this,event)" required><br>
-                    <input class="input_cadastro entrada" type="password" size=10 value="<?=$campo['senha']?>" maxlength="15" id="txtSenha" name="txtSenha" placeholder="Senha" required><br>
+                    <div class="row">
+                        <input readonly class="entrada input_cadastro col-4" type="text" size=20 value="<?=$campo['cidade']?>" maxlength="25" id="txtCidade" name="txtCidade" placeholder="Cidade" required><br>
+
+                        <div class="col-8">
+                            <select class="entrada" name="cmbEstado">
+                                <option value="#">Selecione o estado</option>
+                                
+                                <?php while($linha_estado = mysqli_fetch_array($resultado_estado)){ 
+                                    if($campo['id_estado'] == $linha_estado['id_estado']){
+                                        $valor = 'selected';
+                                    } else {
+                                        $valor = '';
+                                    }
+                                ?>
+                                    <option value="<?=$linha_estado['id_estado']?>" <?=$valor?>><?=$linha_estado['descricao']?></option>
+                                <?php } ?>
+                            </select><br>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="col-12">
-                    <input readonly class="input_cadastro entrada" type="text" maxlength="10" size=10 value="<?=$campo['cep']?>" id="txtCep" name="txtCep" placeholder="CEP" onkeypress="verificarNumero(this,event)" required><br>
+                    <div class="row">
+                        <input readonly class="entrada input_cadastro col-5" type="text" size=20 value="<?=$campo['bairro']?>" maxlength="25" id="txtBairro" name="txtBairro" placeholder="Bairro" required><br>
+                        <input class="entrada input_cadastro col-7" type="text" size=30 value="<?=$campo['complemento']?>" maxlength="20" id="txtComplemento" name="txtComplemento" placeholder="Complemento (APT, etc...)"><br>
+                    </div>
                 </div>
-                <div class="col-12">
-                    <input readonly class="input_cadastro entrada" type="text" size=50 value="<?=$campo['endereco']?>" maxlength="40" id="txtEndereco" name="txtEndereco" placeholder="Endereço (Rua, Praça, etc...)" onkeyup="caixaAlta(this)" required><br>
-                    <input class="input_cadastro entrada" type="text" size=5 value="<?=$campo['numero']?>" maxlength="8" id="txtNumero" name="txtNumero" placeholder="Numero" onkeypress="verificarNumero(this,event)"><br>
-                </div>
-                <div class="col-12">
-                    <input class="entrada" type="text" size=30 value="<?=$campo['complemento']?>" maxlength="20" id="txtComplemento" name="txtComplemento" placeholder="Complemento (APT, etc...)"><br>
-                </div>
-                <div class="col-12">
-                    <input readonly class="entrada" type="text" size=20 value="<?=$campo['bairro']?>" maxlength="25" id="txtBairro" name="txtBairro" placeholder="Bairro" required><br>
-                    <input readonly class="entrada" type="text" size=20 value="<?=$campo['cidade']?>" maxlength="25" id="txtCidade" name="txtCidade" placeholder="Cidade" required><br>
-                </div>
-                <div class="col-12">
-                    <select class="entrada" name="cmbEstado">
-                        <option value="#">Selecione o estado</option>
-                        
-                        <?php while($linha_estado = mysqli_fetch_array($resultado_estado)){ 
-                            if($campo['id_estado'] == $linha_estado['id_estado']){
-                                $valor = 'selected';
-                            } else {
-                                $valor = '';
-                            }
-                        ?>
-                            <option value="<?=$linha_estado['id_estado']?>" <?=$valor?>><?=$linha_estado['descricao']?></option>
-                        <?php } ?>
-                    </select><br>
-                </div>
+          
+              
 
                 <div class="barra col-12">
                 
