@@ -56,22 +56,21 @@ $consulta = mysqli_query($conexao,$query);
 ?>
 
 
-
-        <div class="produto" id="tituloProduto">
-            <h1><?= $linha['nome_produto'] ?></h1>
-
-            <div class="imgProduto" id="imgProduto">
-                <img class="imgHome" src=<?= $linha['imagem_produto'] ?>>
+        <a class="produto" href="?pagina=pagina_produto&id=<?= $linha['id_produto'] ?>">
+            <div  id="tituloProduto">
+                <h1><?= $linha['nome_produto'] ?></h1>    
             </div>
-            <div id="precoProduto">
-                <p>R$ <?= $linha['preco_produto'] ?></p>
-                <div id="btCompra">
-                <a href="?pagina=pagina_produto&id=<?= $linha['id_produto'] ?>">Comprar</a>
 
+                <div class="imgProduto" id="imgProduto">
+                    <img class="imgHome" src=<?= $linha['imagem_produto'] ?>>
                 </div>
-            </div>
-
-        </div>
+                <div id="precoProduto">
+                    <h5>R$ <?= $linha['preco_produto'] ?></h5>
+                </div>
+            
+        </a>
+    </div>
+  
 
 
 <?php

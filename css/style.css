@@ -283,6 +283,19 @@ td,th{
     display: flex;
     flex-direction: row-reverse;
 }
+
+/* PRODUTO */
+
+.produto{
+    background-color: #dee2e6;
+    border: 0.5px #212529 solid;
+    color: #212529;
+}
+
+.produto:hover{
+    text-decoration: none;
+    color: #da4080;
+}
  
 
 
