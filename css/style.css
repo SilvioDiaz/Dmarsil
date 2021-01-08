@@ -247,6 +247,42 @@ td,th{
     display: flex;
     justify-content: center;
 }
+
+/* PERFIL */
+
+.linha_perfil{
+    margin-right: 1rem;
+    padding: 0 1rem;
+}
+
+.btn_menuPerfil{
+    display: flex;
+    justify-content: center;
+    height: 2rem;
+    border: 1px solid #212529;
+    align-items: center;
+}
+
+.btn_menuPerfil:hover{
+    text-decoration: none;
+    background-color: #da4080;
+    color: #dee2e6
+}
+
+#perfil_dados{
+    background-color: #dee2e6;
+    border: solid 0.5px #212529;
+    padding: 1rem;
+}
+
+#perfil_menu{
+    background-color: #dee2e6;;
+}
+
+#perfil_deslogar{
+    display: flex;
+    flex-direction: row-reverse;
+}
  
 
 
