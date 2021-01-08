@@ -215,6 +215,8 @@ INSERT INTO status_pedido(descricao_status) VALUES ('Pagamento Efetuado');
 INSERT INTO status_pedido(descricao_status) VALUES ('Pedido Enviado');
 INSERT INTO status_pedido(descricao_status) VALUES ('Pedido Entregue');
 INSERT INTO status_pedido(descricao_status) VALUES ('Pedido Cancelado');
+INSERT INTO status_pedido(descricao_status) VALUES ('Pedido Efetuado');
+
 
 
 

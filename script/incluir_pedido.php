@@ -14,13 +14,16 @@ $data_pedido = getdate();
 $data = $data_pedido['year'].'-'. $data_pedido['mon'].'-'. $data_pedido['mday'] . " " . $data_pedido['hours']. ':' . $data_pedido['minutes'] . ':' . $data_pedido['seconds'];
 $comprador = $_SESSION['Usuario']['id_usuario'];
 $total = $_GET['total'];
+$id_status = 5;
 
 $incluir_pedidos = "INSERT INTO pedidos(data_pedido,
                                         valor_total,
-                                        id_usuario)
-                            VALUES('now()',
+                                        id_usuario,
+                                        id_status)
+                            VALUES(now(),
                                     '$total',
-                                    $comprador
+                                    $comprador,
+                                    $id_status
                                     );";
 
 mysqli_query($conexao,$incluir_pedidos);
@@ -51,10 +54,13 @@ $incluir_item = "INSERT INTO item_pedido(
 
 mysqli_query($conexao,$incluir_item);
 
+echo $incluir_item."<br>";
+echo $incluir_pedidos;
+
 }
 
 
 
 
-header('location:../index.php?pagina=produtos');
+// header('location:../index.php?pagina=produtos');
 ?>
