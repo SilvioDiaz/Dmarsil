@@ -185,7 +185,7 @@ document.title = "Cadastro de Produto"
             <label for="ativar">Inativo</label><br>
       </div>
       <div id="codigo_cadastro">
-        <input readonly type="text" id="codigo_produto"    name= "txt_codigo_produto"      value = '<?=$campo['codigo_produto']?>'     placeholder="Código">    <br>
+        <input type="text" id="codigo_produto"    name= "txt_codigo_produto"      value = '<?=$campo['codigo_produto']?>'     placeholder="Código">    <br>
       </div>
       
       <div id="finalizadorCad_produto">  
