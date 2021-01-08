@@ -1,3 +1,34 @@
+input{
+    border: solid 0.5px #212529;
+    color: #212529;
+    padding: 0 0.2rem;
+    border-radius: 2px;
+}
+
+input[type='file'] {
+    display: none
+  }
+
+input:focus{
+    border: solid 0.5px #da4080;
+}
+
+input:read-only{
+    background-color: #dee2e6;
+}   
+
+button{
+    border: none;
+}
+
+input[type=radio]:checked{
+  color: #da4080;
+} 
+option:checked {
+  color: red;
+}
+
+
 .container-lg{
     justify-content: center;
     display: flex;
@@ -121,7 +152,7 @@ td,th{
 }
 
 .cadastro{
-    border: solid black;
+    border: solid 0.5px #212529;
     background: #f8f9fa;
     width: 50%;
     padding: 2rem;
@@ -198,18 +229,25 @@ td,th{
     flex-direction: row-reverse;
 }
 
-input[type='file'] {
-    display: none
-  }
   
   /* Aparência que terá o seletor de arquivo */
-  .btn {
-    background-color: pink;
-    border-radius: 5px;
+  .btnPrincipal {
+    background-color: #da4080;
+    border-radius: 2px;
     color: #fff;
     cursor: pointer;
-    padding: 6px 20px
+    padding: 0.5rem;
   }
+
+  .btnPrincipal:hover{
+      color: #212529;
+  }
+
+.modal-body{
+    display: flex;
+    justify-content: center;
+}
+ 
 
 
 

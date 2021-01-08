@@ -133,26 +133,23 @@ function caixaAlta(campo){
 
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Insira seu CEP</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-          
-            <div>
-                <form action="" method="post">
-                    <input placeholder = "CEP" type="text" name="cep">
-                    <button id="endPesquisa" type="submit">Pesquisar Endereço</button>
-                </form>
-            </div>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Insira seu CEP</h5>
+                </div>
+                <div class="modal-body">
+                
+                    <div>
+                        <form action="" method="post">
+                            <input placeholder = "CEP" type="text" name="cep">
+                            <button class="btnPrincipal" id="endPesquisa" type="submit">Pesquisar Endereço</button>
+                        </form>
+                    </div>
 
+                </div>
+            </div>
         </div>
-        </div>
-    </div>
     </div>
 
 
@@ -199,16 +196,16 @@ function caixaAlta(campo){
 
                 <input class="input_cadastro entrada" type="email" size=30 value="<?=$campo['email']?>" maxlength="30" id="txtEmail" name="txtEmail" placeholder="E-mail"required><br>
 
-                <input class="input_cadastro entrada col-8" type="text" size=50 value="<?=$campo['nome']?>" maxlength="50" id="txtNome" name="txtNome" placeholder="Nome do usuário" onkeyup="caixaAlta(this)" required><br>
-                <input class="input_cadastro entrada col-5" type="password" size=10 value="<?=$campo['senha']?>" maxlength="15" id="txtSenha" name="txtSenha" placeholder="Senha" required><br>
+                <input class="input_cadastro entrada" type="text" size=50 value="<?=$campo['nome']?>" maxlength="50" id="txtNome" name="txtNome" placeholder="Nome do usuário" onkeyup="caixaAlta(this)" required><br>
+                <input class="input_cadastro entrada" type="password" size=10 value="<?=$campo['senha']?>" maxlength="15" id="txtSenha" name="txtSenha" placeholder="Senha" required><br>
 
-                <input class="input_cadastro entrada col-4" type="text" size=15 value="<?=$campo['nascimento']?>" id="txtNascimento" name="txtNascimento" placeholder="Data de Nascimento" maxlength="10" onkeypress="verificarNumero(this,event)"  onkeypress="formatarData(this,event)" required ><br>
+                <input class="input_cadastro entrada" type="text" size=15 value="<?=$campo['nascimento']?>" id="txtNascimento" name="txtNascimento" placeholder="Data de Nascimento" maxlength="10" onkeypress="verificarNumero(this,event)"  onkeypress="formatarData(this,event)" required ><br>
       
                 <input class="input_cadastro entrada entrada-top" size=10 value="<?=$campo['login']?>" maxlength="10" type="text" id="txtLogin" name="txtLogin" placeholder="Login" required><br>
 
                 <div class="col-12">
                     <div class="row">
-                        <input class="input_cadastro entrada col-5" type="text" size=15 value="<?=$campo['telefone']?>" maxlength="14" id="txtTelefone" name="txtTelefone" placeholder="Telefone" onkeypress="verificarNumero(this,event)" required><br>
+                        <input class="input_cadastro entrada" type="text" size=15 value="<?=$campo['telefone']?>" maxlength="14" id="txtTelefone" name="txtTelefone" placeholder="Telefone" onkeypress="verificarNumero(this,event)" required><br>
                     </div>
                 </div>
                
@@ -216,37 +213,39 @@ function caixaAlta(campo){
   
                 <div class="col-12">
                     <div class="row">
-                        <input readonly class="input_cadastro entrada" type="text" size=50 value="<?=$campo['endereco']?>" maxlength="40" id="txtEndereco" name="txtEndereco" placeholder="Endereço (Rua, Praça, etc...)" onkeyup="caixaAlta(this)" required><br>
+                        <input style="margin-right: 0.5rem;" readonly class="input_cadastro entrada" type="text" size=50 value="<?=$campo['endereco']?>" maxlength="40" id="txtEndereco" name="txtEndereco" placeholder="Endereço (Rua, Praça, etc...)" onkeyup="caixaAlta(this)" required><br>
                         <input class="input_cadastro entrada" type="text" size=5 value="<?=$campo['numero']?>" maxlength="8" id="txtNumero" name="txtNumero" placeholder="Numero" onkeypress="verificarNumero(this,event)"><br>
                     </div>
                 </div>
 
                 <div class="col-12">
                     <div class="row">
-                        <input readonly class="entrada input_cadastro col-4" type="text" size=20 value="<?=$campo['cidade']?>" maxlength="25" id="txtCidade" name="txtCidade" placeholder="Cidade" required><br>
+                        <div>
+                            <input readonly class="entrada input_cadastro" type="text" size=20 value="<?=$campo['cidade']?>" maxlength="25" id="txtCidade" name="txtCidade" placeholder="Cidade" required><br>
 
-                        <div class="col-8">
-                            <select class="entrada" name="cmbEstado">
-                                <option value="#">Selecione o estado</option>
-                                
-                                <?php while($linha_estado = mysqli_fetch_array($resultado_estado)){ 
-                                    if($campo['id_estado'] == $linha_estado['id_estado']){
-                                        $valor = 'selected';
-                                    } else {
-                                        $valor = '';
-                                    }
-                                ?>
-                                    <option value="<?=$linha_estado['id_estado']?>" <?=$valor?>><?=$linha_estado['descricao']?></option>
-                                <?php } ?>
-                            </select><br>
+                            <div>
+                                <select class="entrada" name="cmbEstado">
+                                    <option value="#">Selecione o estado</option>
+                                    
+                                    <?php while($linha_estado = mysqli_fetch_array($resultado_estado)){ 
+                                        if($campo['id_estado'] == $linha_estado['id_estado']){
+                                            $valor = 'selected';
+                                        } else {
+                                            $valor = '';
+                                        }
+                                    ?>
+                                        <option value="<?=$linha_estado['id_estado']?>" <?=$valor?>><?=$linha_estado['descricao']?></option>
+                                    <?php } ?>
+                                </select><br>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12">
                     <div class="row">
-                        <input readonly class="entrada input_cadastro col-5" type="text" size=20 value="<?=$campo['bairro']?>" maxlength="25" id="txtBairro" name="txtBairro" placeholder="Bairro" required><br>
-                        <input class="entrada input_cadastro col-7" type="text" size=30 value="<?=$campo['complemento']?>" maxlength="20" id="txtComplemento" name="txtComplemento" placeholder="Complemento (APT, etc...)"><br>
+                        <input style="margin-right: 0.5rem;" readonly class="entrada input_cadastro" type="text" size=20 value="<?=$campo['bairro']?>" maxlength="25" id="txtBairro" name="txtBairro" placeholder="Bairro" required><br>
+                        <input class="entrada input_cadastro" type="text" size=30 value="<?=$campo['complemento']?>" maxlength="20" id="txtComplemento" name="txtComplemento" placeholder="Complemento (APT, etc...)"><br>
                     </div>
                 </div>
           
@@ -260,6 +259,8 @@ function caixaAlta(campo){
                     if($resultadoHeader['id_tipo'] = 1){
                         
                 ?>
+
+                <button class="btnPrincipal" name=<?= $btnID?> id=<?= $btnID?> type="submit"><?=$descricao_botao?></button>
 
                 <select class="entrada" name="cmbTipo">
                     <option value="#">Selecione o tipo</option>
@@ -281,7 +282,7 @@ function caixaAlta(campo){
                 ?>
 
             
-                    <button class="link_botao" name=<?= $btnID?> id=<?= $btnID?> type="submit"><?=$descricao_botao?></button>
+                    
                 </div>
 
             

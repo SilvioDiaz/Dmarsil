@@ -66,26 +66,29 @@ document.title = "Cadastro de Produto"
 
 <div class="cadastroProduto">
   <form class="cadastro" action="<?=$acao_formulario?>" method="POST" enctype="multipart/form-data">
+
       <div class="col-12 input_cadastro" id="nome_tipo">
         <input class="col-5" type="text" id="nome_produto"      name= "txt_nome_produto"        value ='<?=$campo['nome_produto']?>'        placeholder="Nome do Produto">      <br>
+        
         <select class="col-5" class="entrada" name="cmbTipoProduto">
-              <option value="#">Selecione o tipo de Produto:</option>
+            <option value="#">Selecione o tipo de Produto:</option>
 
-              <?php while($linha_tipoProduto = mysqli_fetch_array($resultado_tipo)){
-                          PRINT_R($linha_tipoProduto);
-                  if($campo['tipo_produto'] == $linha_tipoProduto['id_tipoProduto']){
-                      $valor = 'selected';
-                  } else {
-                      $valor = '';
-                  }
-              ?>
-                  <option value="<?=$linha_tipoProduto['id_tipoProduto']?>" <?=$valor?>><?=$linha_tipoProduto['nome_tipoProduto']?></option>
-              <?php } ?>
+            <?php while($linha_tipoProduto = mysqli_fetch_array($resultado_tipo)){
+                        PRINT_R($linha_tipoProduto);
+                if($campo['tipo_produto'] == $linha_tipoProduto['id_tipoProduto']){
+                    $valor = 'selected';
+                } else {
+                    $valor = '';
+                }
+            ?>
+                <option value="<?=$linha_tipoProduto['id_tipoProduto']?>" <?=$valor?>><?=$linha_tipoProduto['nome_tipoProduto']?></option>
+            <?php } ?>
       </select><br>
         
       </div>
+
       <div class="col-12">
-        <label class="btn" for='fileToUpload'>Selecionar um arquivo &#187;</label>
+        <label class="btnPrincipal" for='fileToUpload'>Selecionar um arquivo &#187;</label>
         <input type="file" id="fileToUpload"      name= "fileToUpload"            value = '<?=$campo['img_produto']?>'        placeholder="imagem" required>      <br>
       </div>
       <div id="modelo_banho" class="input_cadastro">
@@ -186,7 +189,7 @@ document.title = "Cadastro de Produto"
       </div>
       
       <div id="finalizadorCad_produto">  
-        <button type ='submit'><?=$descricao_botao?></button>
+        <button class="btnPrincipal" type ='submit'><?=$descricao_botao?></button>
       </div>
   
 

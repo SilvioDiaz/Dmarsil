@@ -18,7 +18,7 @@
 <form class="formulario" action='./script/codigo_login.php?<?=$pagina?>' method='POST'>
     <input type="text" id="inputLogin"  name="inputLogin" placeholder="Login" required maxlength="10"> <br>
     <input type="password" id="inputSenha" name="inputSenha" placeholder="Senha" required maxlength="15"> <br>
-    <button type="submit" id="btnIncluir">Login</button>
+    <button class="btnPrincipal" type="submit" id="btnIncluir">Login</button>
 </form>
 <a href = ./index.php?pagina=cadastro>Não tem cadasro? Clique aqui</a>
 </div>
