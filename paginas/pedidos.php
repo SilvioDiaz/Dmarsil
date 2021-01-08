@@ -7,14 +7,16 @@ if(isset($_SESSION['Usuario'])){
 $id_usuario = $_SESSION['Usuario']['id_usuario'];
 
 
-$query = 'SELECT p.id_pedidos, p.valor_total, p.data_pedido,
+$query = 'SELECT p.id_pedidos,p.id_status, p.valor_total, p.data_pedido,
 i.qtd,i.valor,i.id_produto,
 pr.nome_produto,
-u.nome, u.endereco, u.numero, u.complemento, u.bairro, u.cidade, u.cep
+u.nome, u.endereco, u.numero, u.complemento, u.bairro, u.cidade, u.cep,
+s.descricao_status
 	FROM pedidos p
 	INNER JOIN usuario u ON p.id_usuario = u.id_usuario
     INNER JOIN item_pedido i ON p.id_pedidos = i.id_pedidos
-    INNER JOIN produto pr ON i.id_produto = pr.id_produto';
+    INNER JOIN produto pr ON i.id_produto = pr.id_produto
+    INNER JOIN status_pedido s ON p.id_status = s.id_status' ;
     
 $consulta = mysqli_query($conexao,$query);
 
