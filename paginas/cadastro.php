@@ -94,19 +94,23 @@ document.title = "Cadastro"
 function verificarNumero(campo,evento){
     var e = evento.keyCode;
     var d = campo.value;
-
+    
     if(e <96 && e > 105 || e< 48 || e> 57 ){
         campo.value = null;
         alert ("Não é número");
     }else{
         campo.value = d;
     }
+
+   
 }
+
 
 
 function formatarData(campo,evento){ 
      var e = evento.keyCode; 
-     var d = campo.value; 
+     var d = campo.value(str); 
+ 
 
      if(e != 8 && e != 46){ 
          if(d.length == 2){ 
@@ -199,7 +203,7 @@ function caixaAlta(campo){
                 <input class="input_cadastro entrada" type="text" size=50 value="<?=$campo['nome']?>" maxlength="50" id="txtNome" name="txtNome" placeholder="Nome do usuário" onkeyup="caixaAlta(this)" required><br>
                 <input class="input_cadastro entrada" type="password" size=10 value="<?=$campo['senha']?>" maxlength="15" id="txtSenha" name="txtSenha" placeholder="Senha" required><br>
 
-                <input class="input_cadastro entrada" type="text" size=15 value="<?=$campo['nascimento']?>" id="txtNascimento" name="txtNascimento" placeholder="Data de Nascimento" maxlength="10" onkeypress="verificarNumero(this,event)"  onkeypress="formatarData(this,event)" required ><br>
+                <input class="input_cadastro entrada" type="text" size=15 value="<?=$campo['nascimento']?>" id="txtNascimento" name="txtNascimento" placeholder="Data de Nascimento" maxlength="10" onkeypress="verificarNumero(this,event)" required ><br>
       
                 <input class="input_cadastro entrada entrada-top" size=10 value="<?=$campo['login']?>" maxlength="10" type="text" id="txtLogin" name="txtLogin" placeholder="Login" required><br>
 
