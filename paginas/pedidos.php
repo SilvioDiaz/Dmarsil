@@ -6,16 +6,22 @@ if(isset($_SESSION['Usuario'])){
 
 $id_usuario = $_SESSION['Usuario']['id_usuario'];
 
+$pedidos_usuario = "";
 
-
-    
+if (isset($_SESSION['Usuario']['id_tipo'])) {
+    if($_SESSION['Usuario']['id_tipo'] != '1'){
+    $id_usuario = $_SESSION['Usuario']['id_usuario'];
+    $pedidos_usuario = "WHERE u.id_usuario =".$id_usuario;
+}
+}
+   
 
 
 $query_pedido = 'SELECT p.id_pedidos,p.id_status, p.valor_total, p.data_pedido,
 s.descricao_status,u.nome, u.endereco, u.numero, u.complemento, u.bairro, u.cidade, u.cep
 	FROM pedidos p
     INNER JOIN status_pedido s ON p.id_status = s.id_status
-    INNER JOIN usuario u ON p.id_usuario = u.id_usuario';
+    INNER JOIN usuario u ON p.id_usuario = u.id_usuario'.$pedidos_usuario;
 
 
 $consulta_pedido = mysqli_query($conexao,$query_pedido);
