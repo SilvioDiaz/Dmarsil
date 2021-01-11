@@ -299,14 +299,7 @@ function caixaAlta(campo){
         $(window).on('load',function(){
         $('#myModal').modal('show');
         });
-    }
-    
-    $( "#txtCep").prop( "disabled", true );
-    $( "#txtEndereco" ).prop( "disabled", true );
-    $( "#txtBairro" ).prop( "disabled", true );
-    $( "#txtCidade" ).prop( "disabled", true );
-
-    
+    }  
     
     $('#endPesquisa').click(function(){
         $('#myModal').modal('toggle');
