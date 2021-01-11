@@ -35,7 +35,7 @@ switch($pagina){
         include 'paginas/contato.php';
         break;
     case 'perfil':
-        include 'paginas/perfil.php';
+        include 'paginas/areaperfil.php';
         break;
     case 'login':
         include 'paginas/login.php';

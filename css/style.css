@@ -318,7 +318,7 @@ td,th{
 #pedido{
     background-color: #f8f9fa;
     border: solid 0.5px #212529;
-    margin: 1rem;
+    margin-bottom: 1rem;
 }
 #pagina_pedido{
     display: flex;

@@ -44,7 +44,7 @@ $consulta_pedido = mysqli_query($conexao,$query_pedido);
             INNER JOIN status_pedido s ON p.id_status = s.id_status WHERE p.id_pedidos='. $id;
 
         ?>
-        <div id="pedido" class="col-5">
+        <div id="pedido" class="col-12">
             <div class="row">
                 <p class="linha_perfil">Id Pedido: <?=$id?></p>
                 <p class="linha_perfil">Data Pedido: <?= $linha_pedido['data_pedido']?></p>
