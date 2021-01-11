@@ -26,50 +26,12 @@ document.title = 'Produtos'
 
 <div class="selecaoProduto">
     <p>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#produtos" aria-expanded="false" aria-controls="produtos">Produtos</button>
         <a class="btn btn-primary" data-toggle="collapse" href="#categoria" role="button" aria-expanded="false" aria-controls="categoria">Categorias</a>
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#banho" aria-expanded="false" aria-controls="banho">Banho</button>
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#modelo" aria-expanded="false" aria-controls="modelo">Modelo</button>
     </p>
 </div>
 <div class="row">
-    <!-- 
-  Produtos -->
-  <div class="col">
-    <div class="collapse multi-collapse" id="produtos">
-
-
-    <div class="tabela">
-            <h1>Produtos Cadastrados</h1>
-            <a class="link_botao" href="?pagina=cadastro_produtos">Cadastrar novo Produto</a>
-            <table cellspacing=0>
-                <tr>
-                    <th>PRODUTO</th>
-                    <th>Imagem</th>
-                    <th>Preço</th>
-                    <th colspan="2">FUNÇÃO</th>
-                </tr>
-
-                <?php
-                    while($linha = mysqli_fetch_array($consulta)){
-                ?>
-                        <tr>
-                        <td><?=$linha['nome_produto']?></td>
-                        <td><img class='imgTabela' src=<?=$linha['imagem_produto']?>></td>
-                        <td><?=$linha['preco_produto']?></td>
-                        <td class=tabela-celula><a href="?pagina=cadastro_produtos&id=<?=$linha['id_produto']?>">Editar</a></td>
-                        <td class=tabela-celula><a href="./script/excluir_produto.php?id=<?=$linha['id_produto']?>">Apagar</a></td>
-                        </tr>
-                <?php        
-                    }
-                ?>
-            </table>
-        
-        </div>
-
-    </div>
-  </div>
-
   <div class="col">
     <div class="collapse multi-collapse" id="categoria">
      

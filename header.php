@@ -142,6 +142,11 @@ if(isset($_SESSION['Usuario'])){
         <li class="nav-item active">
           <a class="nav-link" href="?pagina=cadastro_produtos">Cadastrar Produto<span class="sr-only">(current)</span></a>
         </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="?pagina=cadastro">Cadastrar Novo Usuario<span class="sr-only">(current)</span></a>
+        </li>
+
         <li class="nav-item active">
           <a class="nav-link" href="?pagina=usuarios">Usuarios</a>
         </li>
@@ -171,6 +176,8 @@ if(isset($_SESSION['Usuario'])){
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item"  href="?pagina=pedidos"> Pedidos </a>
           <a class="dropdown-item"  href="?pagina=cadastropromo"> Promoções </a>
+          <a class="dropdown-item"  href="?pagina=categoria"> Categorias </a>
+
           </div>
         </li>
 

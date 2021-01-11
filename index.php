@@ -37,9 +37,6 @@ switch($pagina){
     case 'perfil':
         include 'paginas/perfil.php';
         break;
-    case 'produtos':
-        include 'paginas/produtos.php';
-        break;
     case 'login':
         include 'paginas/login.php';
         break;
@@ -75,7 +72,9 @@ switch($pagina){
     case 'tipos_usuario':
         include 'paginas/ADMIN/tipos_usuario.php';
         break;
-
+    case 'produtos':
+        include 'paginas/ADMIN/produtos.php';
+        break;
     case 'usuarios':
         include 'paginas/ADMIN/usuarios.php';
         break;
@@ -86,6 +85,8 @@ switch($pagina){
     case 'categorias':
         include 'paginas/ADMIN/tipos_produto.php';
         break;
+    case 'categoria':
+        include 'paginas/ADMIN/categorias.php';
 
     
 
