@@ -240,6 +240,11 @@ td,th{
     color: #fff;
     cursor: pointer;
     padding: 0.5rem;
+ 
+  }
+
+  .btnMargin{
+      margin: 0.5rem;
   }
 
   .btnPrincipal:hover{
@@ -318,6 +323,15 @@ td,th{
     align-items: center;
 }
 
+#categorias{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#menuCategoria{
+    display:flex;
+}
 
 @media screen and (max-width: 720px){
     .categoria{
