@@ -14,7 +14,7 @@ input:focus{
 }
 
 input:read-only{
-    background-color: #dee2e6;
+    background-color: #f8f9fa;
 }   
 
 button{
@@ -36,16 +36,13 @@ option:checked {
     align-items: center;
 }
 
-.produto{
-    display: block;
-    width: auto;
-    padding: 1rem;
-}
+
 
 
 .Home{
     display:flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .imgProduto{
@@ -54,6 +51,9 @@ option:checked {
 
 .imgHome{
     width: 200px;
+    height: 200px;
+    object-fit: cover;
+    background-position: center;
 }
 
 .inverter{
@@ -85,7 +85,10 @@ td,th{
 }
 
 .imgTabela{
-    height: 25%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    background-position: center;
     }
 
 
@@ -266,17 +269,17 @@ td,th{
 .btn_menuPerfil:hover{
     text-decoration: none;
     background-color: #da4080;
-    color: #dee2e6
+    color: #f8f9fa
 }
 
 #perfil_dados{
-    background-color: #dee2e6;
+    background-color: #f8f9fa;
     border: solid 0.5px #212529;
     padding: 1rem;
 }
 
 #perfil_menu{
-    background-color: #dee2e6;;
+    background-color: #f8f9fa;;
 }
 
 #perfil_deslogar{
@@ -287,9 +290,13 @@ td,th{
 /* PRODUTO */
 
 .produto{
-    background-color: #dee2e6;
+    background-color: #f8f9fa;
     border: 0.5px #212529 solid;
     color: #212529;
+    display: block;
+    width: auto;
+    padding: 1rem;
+    margin: 1rem;
 }
 
 .produto:hover{
@@ -301,7 +308,7 @@ td,th{
 /* PEDIDO */
 
 #pedido{
-    background-color: #dee2e6;
+    background-color: #f8f9fa;
     border: solid 0.5px #212529;
     margin: 1rem;
 }
