@@ -15,13 +15,16 @@
             ?>
 
             <a class="produto" href="?pagina=pagina_produto&id=<?= $linha['id_produto'] ?>">
-                <div  id="tituloProduto">
-                    <h1><?= $linha['nome_produto'] ?></h1>    
-                </div>
+                
 
                     <div class="imgProduto" id="imgProduto">
                         <img class="imgHome" src=<?= $linha['imagem_produto'] ?>>
                     </div>
+                    
+                    <div  id="tituloProduto">
+                        <h1><?= $linha['nome_produto'] ?></h1>    
+                    </div>
+
                     <div id="precoProduto">
                         <h5>R$ <?= $linha['preco_produto'] ?></h5>
                     </div>
