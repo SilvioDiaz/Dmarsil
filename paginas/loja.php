@@ -6,6 +6,8 @@ $linkBanho = "";
 $categoria = "";
 $banho = "";
 
+
+
 if(isset($_GET['banho'])){
     $banho = $_GET['banho'];
     $query = 'SELECT * FROM produto WHERE ativo = true AND id_banho ='. $banho;
@@ -80,3 +82,98 @@ $consulta = mysqli_query($conexao,$query);
 
     </div>
 </div>
+
+<table id="phones">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>price</th>
+      <th>samsung</th>
+      <th>iphone</th>
+      <th>htc</th>
+      <th>lg</th>
+      <th>nokia</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+
+
+<div id="filter">
+  <h2>Filter options</h2>
+  <div>
+    <input type="checkbox" name="banho=1">
+    <label for="car">samsung</label>
+  </div>
+  <div>
+    <input type="checkbox" name="iphone">
+    <label for="language">iphone</label>
+  </div>
+  <div>
+    <input type="checkbox" name="htc">
+    <label for="nights">htc</label>
+  </div>
+  <div>
+    <input type="checkbox" id="4" name="lg">
+    <label for="student">lg</label>
+  </div>
+        <div>
+    <input type="checkbox" id="5" name="nokia">
+    <label for="student">nokia</label>
+  </div>
+</div>
+
+<script>
+
+function makeTable(data){
+   var tbl_body = "";
+      $.each(data, function() {
+        var tbl_row = "";
+        $.each(this, function(k , v) {
+          tbl_row += "<td>"+v+"</td>";
+        })
+        tbl_body += "<tr>"+tbl_row+"</tr>";
+      })
+
+    return tbl_body;
+  }
+
+function buscarFiltro(){
+    var opts = [];
+    $checkboxes.each(function(){
+      if(this.checked){
+        opts.push(this.name);
+      }
+    });
+
+    console.log(opts);
+    return opts;
+  }
+
+  function atualizarPagina(opts){
+    $.ajax({
+      type: "POST",
+      url: "./script/filtro_categoria.php",
+      dataType : 'json',
+      cache: false,
+      data: {filterOpts: opts},
+      success: function(records){
+        $('#phones tbody').html(makeTable(records));
+      }
+    });
+  }
+
+
+  var $checkboxes = $("input:checkbox");
+  $checkboxes.on("change", function(){
+    var opts = buscarFiltro();
+    atualizarPagina(opts);
+  });
+
+  atualizarPagina();
+
+
+</script>
