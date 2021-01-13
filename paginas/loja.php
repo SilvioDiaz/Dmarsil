@@ -1,179 +1,95 @@
 <h1>Loja</h1>
 
 <?php
-//Verificar produtos por banho
-$linkBanho = "";
-$categoria = "";
-$banho = "";
 
-
-
-if(isset($_GET['banho'])){
-    $banho = $_GET['banho'];
-    $query = 'SELECT * FROM produto WHERE ativo = true AND id_banho ='. $banho;
-
-}else{
-    //Verificar produtos em gerl
-    $query = 'SELECT * FROM produto';
-} if(isset($_GET['categoria'])){
-    //Verificando se Categoria foi escolhida
+    //Verificando Categoria -------------
+    if(isset($_GET['categoria'])){
     $categoria = $_GET['categoria'];
-
-    $linkBanho = "categoria=";
-
-    if(isset($_GET['banho'])){
-        //Verificando se banho e categoria foram escolhidos
-        $banho = $_GET['banho'];
-        $query = "SELECT * FROM produto WHERE ativo = true AND tipo_produto=".$categoria. " AND id_banho=".$banho;
-    }else{
-        //Se apenas categoria for escolhida
-        $query = 'SELECT * FROM produto WHERE ativo = true AND tipo_produto ='. $categoria;
     }
 
-    
-
-    
-    }
-
-    if(!isset($_GET['categoria']) AND (!isset($_GET['banho']))){
-    //Se categoria nem banho forem escolhidas
-        $categoria = null;
-        $linkBanho = null;
-        $query = 'SELECT * FROM produto';
-    }
-//Verificar produtos
-$consulta = mysqli_query($conexao,$query);
 ?>
+<!-- Div para enviar categoria por ajax -->
+<div style="display: none;" id="categoria">
 
-<div class="containerLista ">
-    <div class = 'Home' id='produtoHome'>
+<p id="idCat"><?=$categoria?></p>
 
-    <a href= './index.php?pagina=loja&<?=$linkBanho?><?=$categoria?>&banho=1'>Ouro</a>
-    <a href= './index.php?pagina=loja&<?=$linkBanho?><?=$categoria?>&banho=2'>Ouro Branco</a>
-
-    
-
-<?php
-    while($linha = mysqli_fetch_array($consulta)){
-?>
-
-
-        <a class="produto" href="?pagina=pagina_produto&id=<?= $linha['id_produto'] ?>">
-            <div  id="tituloProduto">
-                <h1><?= $linha['nome_produto'] ?></h1>    
-            </div>
-
-                <div class="imgProduto" id="imgProduto">
-                    <img class="imgHome" src=<?= $linha['imagem_produto'] ?>>
-                </div>
-                <div id="precoProduto">
-                    <h5>R$ <?= $linha['preco_produto'] ?></h5>
-                </div>
-            
-        </a>
-    </div>
-  
-
-
-<?php
-    }
-    
-?>
-
-    </div>
 </div>
+<div class="containerLista ">
+  <div class = 'Home' id='produtoHome'>
 
-<table id="phones">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>price</th>
-      <th>samsung</th>
-      <th>iphone</th>
-      <th>htc</th>
-      <th>lg</th>
-      <th>nokia</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+    <div class=""></div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="type" id="cbOuro" value="id_banho=1">
+          <label class="form-check-label" for="inlineCheckbox1">Ouro</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="type" id="cbOuroBranco" value="id_banho=2">
+          <label class="form-check-label" for="inlineCheckbox1">Ouro Branco</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="type" id="mdM" value="id_modelo=1">
+          <label class="form-check-label" for="inlineCheckbox1">Masculino</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="type" id="mdF" value="id_modelo=2">
+          <label class="form-check-label" for="inlineCheckbox1">Feminino</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="type" id="mdI" value="id_modelo3=">
+          <label class="form-check-label" for="inlineCheckbox1">Infantil</label>
+        </div>
+      </div>
+    <button id="buton">Teste</button>
+
+  <div id ="loja">
+  
+  
+  </div>
 
 
-
-<div id="filter">
-  <h2>Filter options</h2>
-  <div>
-    <input type="checkbox" name="banho=1">
-    <label for="car">samsung</label>
-  </div>
-  <div>
-    <input type="checkbox" name="iphone">
-    <label for="language">iphone</label>
-  </div>
-  <div>
-    <input type="checkbox" name="htc">
-    <label for="nights">htc</label>
-  </div>
-  <div>
-    <input type="checkbox" id="4" name="lg">
-    <label for="student">lg</label>
-  </div>
-        <div>
-    <input type="checkbox" id="5" name="nokia">
-    <label for="student">nokia</label>
-  </div>
+    </div>
 </div>
 
 <script>
 
-function makeTable(data){
-   var tbl_body = "";
-      $.each(data, function() {
-        var tbl_row = "";
-        $.each(this, function(k , v) {
-          tbl_row += "<td>"+v+"</td>";
-        })
-        tbl_body += "<tr>"+tbl_row+"</tr>";
-      })
-
-    return tbl_body;
-  }
-
-function buscarFiltro(){
-    var opts = [];
-    $checkboxes.each(function(){
-      if(this.checked){
-        opts.push(this.name);
-      }
-    });
-
-    console.log(opts);
-    return opts;
-  }
-
-  function atualizarPagina(opts){
-    $.ajax({
-      type: "POST",
-      url: "./script/filtro_categoria.php",
-      dataType : 'json',
-      cache: false,
-      data: {filterOpts: opts},
-      success: function(records){
-        $('#phones tbody').html(makeTable(records));
-      }
-    });
-  }
+var categoria = $("#idCat").text();
+var cb = "";
+var $checkboxes = $("input:checkbox");
 
 
-  var $checkboxes = $("input:checkbox");
-  $checkboxes.on("change", function(){
-    var opts = buscarFiltro();
-    atualizarPagina(opts);
+function checagem(){
+
+  var cb = [];
+  $.each($("input:checkbox[name=type]:checked"), function(){
+      cb.push($(this).val());
+      
   });
+  alert(cb.join(" AND "));
+}
 
-  atualizarPagina();
+$("#buton").on("click",function(){
+  checagem();
+  chamarLoja();
+});
 
+
+
+
+
+function chamarLoja(){
+  $.ajax({
+    url: "script/filtro_categoria.php",
+    data: {categoriaData: categoria,filtroData: cb},
+    success: function(resultado){
+      $("#loja").html(resultado);
+    },
+    error: function(){
+      $("#loja").html("Tivemos algum problema na loja");
+    }
+  })
+}
+
+chamarLoja();
 
 </script>
+

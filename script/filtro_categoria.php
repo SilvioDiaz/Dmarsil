@@ -1,35 +1,38 @@
 <?php
-    $pdo = new PDO('mysql:host=localhost;dbname=appdb', 'root', 'Silvio10.');
-    $select = 'SELECT *';
-    $from = ' FROM produto';
-    $where = ' WHERE ativo = TRUE ';
-    $opts = isset($_POST['filterOpts'])? $_POST['filterOpts'] : array('');
+include "banco.php";
+
+$categoria = "";
+$filtro = "";
+
+if(isset($_GET['categoriaData'])){
+$categoria = $_GET['categoriaData'];
+}
+
+if(isset($_GET['filtroData'])){
+    echo $filtro = $_GET['filtroData'];
+}
+$query = 'SELECT * FROM produto WHERE ativo = true AND tipo_produto ='.$categoria;
+$consulta = mysqli_query($conexao,$query);
+
+echo $query;
+
+while($linha = mysqli_fetch_array($consulta)){
 
 
+?>
+    <a class="produto" href="?pagina=pagina_produto&id=<?= $linha['id_produto'] ?>">
+            <div  id="tituloProduto">
+                <h1><?= $linha['nome_produto'] ?></h1>    
+            </div>
 
-    if (in_array('ouro', $opts)){
-        $where .= " AND samsung = 1 ";
-    }
+                <div class="imgProduto" id="imgProduto">
+                    <img class="imgHome" src=<?= $linha['imagem_produto'] ?>>
+                </div>
+                <div id="precoProduto">
+                    <h5>R$ <?= $linha['preco_produto'] ?></h5>
+                </div>
+        </a>
+<?php
+}
 
-    if (in_array('iphone', $opts)){
-        $where .= " AND iphone = 1 ";
-    }
-
-        if (in_array('htc', $opts)){
-        $where .= " AND htc = 1 ";
-    }
-        if (in_array('lg', $opts)){
-        $where .= " AND lg = 1 ";
-    }
-        if (in_array('nokia', $opts)){
-        $where .= " AND nokia = 1 ";
-    }
-
-
-    $sql = $select . $from . $where;
-    $statement = $pdo->prepare($sql);
-    $statement->execute();
-    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-    $json = json_encode($results);
-    echo($json);
 ?>
