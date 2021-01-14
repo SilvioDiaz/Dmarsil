@@ -3,15 +3,22 @@ include "banco.php";
 
 $categoria = "";
 $filtro = "";
+$e = "";
 
 if(isset($_GET['categoriaData'])){
 $categoria = $_GET['categoriaData'];
 }
 
 if(isset($_GET['filtroData'])){
-    echo $filtro = $_GET['filtroData'];
+    $filtro = " AND ". $_GET['filtroData'];
+
+    if($_GET['filtroData'] == ""){
+        $filtro = "";
+    }
 }
-$query = 'SELECT * FROM produto WHERE ativo = true AND tipo_produto ='.$categoria;
+
+
+$query = 'SELECT * FROM produto WHERE ativo = true AND tipo_produto ='.$categoria.$filtro;
 $consulta = mysqli_query($conexao,$query);
 
 echo $query;

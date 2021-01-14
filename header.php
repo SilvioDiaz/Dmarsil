@@ -66,7 +66,7 @@ if(isset($_SESSION['carrinho'])){
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-  <a class="navbar-brand" href="?pagina=home">
+  <a class="navbar-brand" href="index.php?pagina=home">
     <img src="img/Dmarsil.svg" width="100" height="100" class="d-inline-block align-top" alt="Logo Dmarsil">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,19 +91,19 @@ if(isset($_SESSION['carrinho'])){
                 <a class="nav-link" href="?pagina=loja&categoria=1">Brinco</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="?pagina=loja&categoria=2">Anél</a>
+                <a class="nav-link" href="?pagina=loja&?categoria=2">Anél</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="?pagina=loja&categoria=4">Pingente</a>
+                <a class="nav-link" href="?pagina=loja&?categoria=4">Pingente</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="?pagina=loja&categoria=5">Cordão</a>
+                <a class="nav-link" href="?pagina=loja&?categoria=5">Cordão</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="?pagina=loja&categoria=3">Puleira</a>
+                <a class="nav-link" href="?pagina=loja&?categoria=3">Puleira</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="?pagina=loja&categoria=6">Tornozeleira</a>
+                <a class="nav-link" href="?pagina=loja&?categoria=6">Tornozeleira</a>
             </li>
           </ul>
       </div>
@@ -131,7 +131,7 @@ if(isset($_SESSION['carrinho'])){
 <?php
 if(isset($_SESSION['Usuario'])){
     if($resultadoHeader['id_tipo'] == 1 ){
-        
+  
 ?>
 
 <div class="headerAdmin">
@@ -168,6 +168,7 @@ if(isset($_SESSION['Usuario'])){
         <?php
               } 
             }
+            
         ?>
         <li class="nav-item dropdown active">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
