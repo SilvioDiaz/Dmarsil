@@ -91,7 +91,7 @@ document.title = "Cadastro de Produto"
       <div class="col-12">
           <label class="btnPrincipal" for='fileToUpload'>Selecionar um arquivo &#187;</label>
           <input type="file" id="fileToUpload"      name= "fileToUpload"            value = '<?=$campo['img_produto']?>'        placeholder="imagem" required>      <br>
-           <img id="imgPreview"></img>
+           <img id="imgPreview" style="width: 200px;"></img>
       </div>
     <!-- MODELO E BANHO ---------------------------------------------------------------------------------->
     <div id="modelo_banho" class="input_cadastro">
