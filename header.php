@@ -13,22 +13,24 @@
 <body>
 
 <?php
+
+if(isset($_SESSION)){
   if(isset($_SESSION['Usuario'])){
-    $query = 'SELECT nome,id_tipo FROM usuario WHERE id_usuario=' . $_SESSION['Usuario']['id_usuario'];
-    $consulta = mysqli_query($conexao, $query);
-    $resultadoHeader = mysqli_fetch_array($consulta);
+    $login = $_SESSION['Usuario']['nome'];
+    $direcionamento = "href='index.php?pagina=perfil'";
+    if($_SESSION['Usuario']['id_tipo'] == 1){
+      $admin = true;
+    }else{
+      $admin = false;
+    }
 
-  }
 
+  }else{
     $login = 'Logar';
     $direcionamento = "href='#' data-toggle='modal' data-target='#exampleModal'";
-
-    if (isset($_SESSION['Usuario'])){
-        $login = $resultadoHeader['nome'];
-        $direcionamento = "href='index.php?pagina=perfil'";
-    }else{
-        
-    }
+    $admin = false;
+  }
+}
 
     if(isset($_GET['status'])){
         if($_GET['status'] == 'logado'){
@@ -129,8 +131,8 @@ if(isset($_SESSION['carrinho'])){
 
 <!-- ADMIN -->
 <?php
-if(isset($_SESSION['Usuario'])){
-    if($resultadoHeader['id_tipo'] == 1 ){
+if($admin == true){
+    
   
 ?>
 
@@ -192,7 +194,7 @@ if(isset($_SESSION['Usuario'])){
 
 <?php
 }
-}        
+       
 ?>
 
 </header>

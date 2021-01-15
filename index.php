@@ -6,11 +6,9 @@ include 'script/banco.php';
 if(!isset($_SESSION)){
     session_start();
 }
-?>
-
-<?php 
 include 'header.php';
 ?>
+
 
 <div class=".container-lg">
 

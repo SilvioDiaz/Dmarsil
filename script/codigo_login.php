@@ -15,7 +15,7 @@ $senha = $_POST['inputSenha'];
 
 
 
-    $queryLogin= "SELECT id_usuario from usuario WHERE login= '$login' AND senha='$senha';";
+    $queryLogin= "SELECT id_usuario,id_tipo,nome from usuario WHERE login= '$login' AND senha='$senha';";
     $resultadoLogin = mysqli_query($conexao,$queryLogin);
     $_SESSION['Usuario'] = mysqli_fetch_array($resultadoLogin);
 
