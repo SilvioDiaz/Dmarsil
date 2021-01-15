@@ -95,15 +95,15 @@ $consulta_pedido = mysqli_query($conexao,$query_pedido);
                         if($admin == true){
                     ?>
 
-                        <a class="btnPrincipal" href="./script/alterar_statuspedido.php?alterar_status=enviado&id_pedido=<?=$id?>">
+                        <a class="btnPrincipal btnMargin" href="./script/alterar_statuspedido.php?alterar_status=enviado&id_pedido=<?=$id?>">
                                 Enviado
                         </a>
 
-                        <a class="btnPrincipal" href="./script/alterar_statuspedido.php?alterar_status=entregue&id_pedido=<?=$id?>">
+                        <a class="btnPrincipal btnMargin" href="./script/alterar_statuspedido.php?alterar_status=entregue&id_pedido=<?=$id?>">
                                 Entregue
                         </a>
 
-                        <a class="btnPrincipal" href="./script/alterar_statuspedido.php?alterar_status=pago&id_pedido=<?=$id?>">
+                        <a class="btnPrincipal btnMargin" href="./script/alterar_statuspedido.php?alterar_status=pago&id_pedido=<?=$id?>">
                                 Pago
                         </a>
 
@@ -111,7 +111,7 @@ $consulta_pedido = mysqli_query($conexao,$query_pedido);
                         }
                     ?>
 
-                <a class="btnPrincipal" href="./script/alterar_statuspedido.php?alterar_status=cancelado&id_pedido=<?=$id?>">
+                <a class="btnPrincipal btnMargin" href="./script/alterar_statuspedido.php?alterar_status=cancelado&id_pedido=<?=$id?>">
                         Cancelar
                 </a>
 
