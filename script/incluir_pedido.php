@@ -52,10 +52,26 @@ $incluir_item = "INSERT INTO item_pedido(
         '$id_produto'
     );";
 
-mysqli_query($conexao,$incluir_item);
+$qtd_atual ="SELECT estoque_produto FROM produto 
+            WHERE id_produto = $id_produto";
 
-echo $incluir_item."<br>";
-echo $incluir_pedidos;
+$resultado_qtd = mysqli_query($conexao,$qtd_atual);
+$qtd_produto = mysqli_fetch_array($resultado_qtd);
+
+
+$qtd_produto = $qtd_produto['estoque_produto'] - $quantidade;
+
+$remover_estoque = "UPDATE produto SET estoque_produto = '$qtd_produto'
+                    WHERE id_produto = $id_produto";
+
+mysqli_query($conexao,$incluir_item);
+mysqli_query($conexao,$remover_estoque);
+
+echo "Quantidade comprada: ".$quantidade."<br>";
+echo "Query para remover estoque: ".$remover_estoque."<br>";
+echo "Query buscando estoque ".$qtd_atual."<br>";
+echo "Nova quantidade em estoque ".$qtd_produto."<br>";
+echo "Id Produto:: ".$id_produto;
 
 }
 
