@@ -235,9 +235,9 @@ td,th{
     flex-direction: row-reverse;
 }
 
-  
-  /* Aparência que terá o seletor de arquivo */
-  .btnPrincipal {
+/* BOTAO */
+
+.btnPrincipal {
     background-color: #da4080;
     border-radius: 2px;
     color: #fff;
@@ -252,7 +252,13 @@ td,th{
 
   .btnPrincipal:hover{
       color: #212529;
+      text-decoration: none;
   }
+
+
+  
+  /* Aparência que terá o seletor de arquivo */
+  
 
 .modal-body{
     display: flex;

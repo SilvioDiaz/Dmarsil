@@ -65,6 +65,8 @@ document.title = "Cadastro de Produto"
 
 
 <div class="cadastroProduto">
+  <!-- INICIO FORM ---------------------------------------------------------------------------------->
+
   <form class="cadastro" action="<?=$acao_formulario?>" method="POST" enctype="multipart/form-data">
 
       <div class="col-12 input_cadastro" id="nome_tipo">
@@ -74,7 +76,6 @@ document.title = "Cadastro de Produto"
             <option value="#">Selecione o tipo de Produto:</option>
 
             <?php while($linha_tipoProduto = mysqli_fetch_array($resultado_tipo)){
-                        PRINT_R($linha_tipoProduto);
                 if($campo['tipo_produto'] == $linha_tipoProduto['id_tipoProduto']){
                     $valor = 'selected';
                 } else {
@@ -86,61 +87,63 @@ document.title = "Cadastro de Produto"
       </select><br>
         
       </div>
-
+    <!-- IMAGEM ---------------------------------------------------------------------------------->
       <div class="col-12">
-        <label class="btnPrincipal" for='fileToUpload'>Selecionar um arquivo &#187;</label>
-        <input type="file" id="fileToUpload"      name= "fileToUpload"            value = '<?=$campo['img_produto']?>'        placeholder="imagem" required>      <br>
+          <label class="btnPrincipal" for='fileToUpload'>Selecionar um arquivo &#187;</label>
+          <input type="file" id="fileToUpload"      name= "fileToUpload"            value = '<?=$campo['img_produto']?>'        placeholder="imagem" required>      <br>
+           <img id="imgPreview"></img>
       </div>
-      <div id="modelo_banho" class="input_cadastro">
-    <div  class="row col-12">
-      <div class="col-6">
-        <h3>Modelo</h3>
-        <div class="radio_lateral">
-          <?php
-            while($linha_modelo = mysqli_fetch_array($resultado_modelo)){
-              if($campo['modelo'] == $linha_modelo['id_modelo']){
-                  $valor ='checked';
-              }else{
-                $valor = '';
-              }
-        
-          ?>
-          <div class="radio_cadastro">
-            <input type="radio" id="<?=$linha_modelo['id_modelo']?>'" name="rdModelo" value="<?=$linha_modelo['id_modelo']?>"  <?=$valor?>>
-            <label for="<?=$linha_modelo['id_modelo']?>"><?=$linha_modelo['nome_modelo']?></label><br>
+    <!-- MODELO E BANHO ---------------------------------------------------------------------------------->
+    <div id="modelo_banho" class="input_cadastro">
+        <div  class="row col-12">
+          <div class="col-6">
+            <h3>Modelo</h3>
+            <div class="radio_lateral">
+              <?php
+                while($linha_modelo = mysqli_fetch_array($resultado_modelo)){
+                  if($campo['modelo'] == $linha_modelo['id_modelo']){
+                      $valor ='checked';
+                  }else{
+                    $valor = '';
+                  }
+            
+              ?>
+              <div class="radio_cadastro">
+                <input type="radio" id="<?=$linha_modelo['id_modelo']?>'" name="rdModelo" value="<?=$linha_modelo['id_modelo']?>"  <?=$valor?>>
+                <label for="<?=$linha_modelo['id_modelo']?>"><?=$linha_modelo['nome_modelo']?></label><br>
+              </div>
+            <?php
+                }
+            ?>
+            </div>
           </div>
-        <?php
-            }
-        ?>
-        </div>
-      </div>
-      <div class="col-6">
-        <h3>Banho</h3>
-        <div class="radio_lateral">
-        <?php
-          while($linha_banho = mysqli_fetch_array($resultado_banho)){
-            if($campo['id_banho'] == $linha_banho['id_banho']){
-                $valor ='checked';
-            }else{
-              $valor = '';
-            }
-      
-        ?>
-        <div class="radio_cadastro">
-          <input type="radio" id="<?=$linha_banho['id_banho']?>'" name="rdBanho" value="<?=$linha_banho['id_banho']?>"  <?=$valor?>>
-          <label for="<?=$linha_banho['id_banho']?>"><?=$linha_banho['nome_banho']?></label><br>
-        </div>
-        <?php
-            }
-        ?>
+          <div class="col-6">
+            <h3>Banho</h3>
+            <div class="radio_lateral">
+            <?php
+              while($linha_banho = mysqli_fetch_array($resultado_banho)){
+                if($campo['id_banho'] == $linha_banho['id_banho']){
+                    $valor ='checked';
+                }else{
+                  $valor = '';
+                }
+          
+            ?>
+            <div class="radio_cadastro">
+              <input type="radio" id="<?=$linha_banho['id_banho']?>'" name="rdBanho" value="<?=$linha_banho['id_banho']?>"  <?=$valor?>>
+              <label for="<?=$linha_banho['id_banho']?>"><?=$linha_banho['nome_banho']?></label><br>
+            </div>
+            <?php
+                }
+            ?>
 
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
   </div>
 
-    
-      <div id="informacoes" class="input_cadastro">
+    <!-- VALOR E DESCRIÇÃO ---------------------------------------------------------------------------------->
+    <div id="informacoes" class="input_cadastro">
         <div class="row col-12">
           <div id="valores" class="col-3">
             <div>R$<input  type="text" id="precoBase_produto" name= "txt_precoBase_produto" class="preco_input"   value = '<?= $campo['precoBase_produto']?>' placeholder="Valor Vendedora">           <br></div>
@@ -154,8 +157,8 @@ document.title = "Cadastro de Produto"
 
 
 
-      
-      <div class="col-12 input_cadastro" id="detalheCadastro">
+    <!-- DETALHES ---------------------------------------------------------------------------------->
+    <div class="col-12 input_cadastro" id="detalheCadastro">
         <input type="text" id="tamanho_produto"   name= "txt_tamanho_produto"     value = '<?=$campo['tamanho_produto']?>'    placeholder="Tamanho do Produto">   <br>
         <input type="text" id="peso_produto"      name= "txt_peso_produto"        value = '<?=$campo['peso_produto']?>'       placeholder="Peso do Produto">      <br>
         <label for="estoque_produto">Estoque</label>
@@ -165,7 +168,7 @@ document.title = "Cadastro de Produto"
 
       
 
-
+    <!--ATIVO  ---------------------------------------------------------------------------------->
     <div class="col-12 input_cadastro">
       <h3>Produto Ativo? </h3>
 
@@ -184,6 +187,9 @@ document.title = "Cadastro de Produto"
           <input type="radio" id="desativar'" name="rdAtivo" value="0" <?=$valorInativo?>>
             <label for="ativar">Inativo</label><br>
       </div>
+
+    <!-- FINALIZAÇÃO ---------------------------------------------------------------------------------->
+
       <div id="codigo_cadastro">
         <input type="text" id="codigo_produto"    name= "txt_codigo_produto"      value = '<?=$campo['codigo_produto']?>'     placeholder="Código">    <br>
       </div>
@@ -195,3 +201,13 @@ document.title = "Cadastro de Produto"
 
   </form>
 </div>
+
+<script>
+//PREVIEW DE IMAGEM////////////////////////////////////////////////////////////
+    $("#fileToUpload").change(function() {
+      $('#imgPreview').attr('src', window.URL.createObjectURL(this.files[0])
+      );
+
+    });
+
+</script>
