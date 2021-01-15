@@ -7,17 +7,18 @@ if(isset($_SESSION['Usuario'])){
     }else{
         $admin = false;
     }
+    
 
 $id_usuario = $_SESSION['Usuario']['id_usuario'];
 
 $pedidos_usuario = "";
 
-if (isset($_SESSION['Usuario']['id_tipo'])) {
-    if($admin = false){
-        $id_usuario = $_SESSION['Usuario']['id_usuario'];
-        $pedidos_usuario = "WHERE u.id_usuario =".$id_usuario;
-    }
+
+if($admin == false){
+    $id_usuario = $_SESSION['Usuario']['id_usuario'];
+    $pedidos_usuario = " WHERE u.id_usuario =".$id_usuario;
 }
+
    
 
 
@@ -35,7 +36,13 @@ $consulta_pedido = mysqli_query($conexao,$query_pedido);
 <div id="pagina_pedido">
 
     <?php
-    while($linha_pedido = mysqli_fetch_array($consulta_pedido)){
+
+    if (mysqli_num_rows($consulta_pedido) == 0) {
+        echo "Nenhum pedido feito até o momento";
+    } else {
+       while($linha_pedido = mysqli_fetch_array($consulta_pedido)){
+
+        
         $id = $linha_pedido['id_pedidos'];
 
 
@@ -149,7 +156,7 @@ $consulta_pedido = mysqli_query($conexao,$query_pedido);
 
 </div>
 <?php
-
+    }
 }else{
 
     header('location:./index.php?pagina=login&perfil=logar');
