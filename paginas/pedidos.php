@@ -2,17 +2,21 @@
 
 if(isset($_SESSION['Usuario'])){
 
-
+    if($_SESSION['Usuario']['id_tipo'] == '1'){
+        $admin = true;
+    }else{
+        $admin = false;
+    }
 
 $id_usuario = $_SESSION['Usuario']['id_usuario'];
 
 $pedidos_usuario = "";
 
 if (isset($_SESSION['Usuario']['id_tipo'])) {
-    if($_SESSION['Usuario']['id_tipo'] != '1'){
-    $id_usuario = $_SESSION['Usuario']['id_usuario'];
-    $pedidos_usuario = "WHERE u.id_usuario =".$id_usuario;
-}
+    if($admin = false){
+        $id_usuario = $_SESSION['Usuario']['id_usuario'];
+        $pedidos_usuario = "WHERE u.id_usuario =".$id_usuario;
+    }
 }
    
 
@@ -42,8 +46,7 @@ $consulta_pedido = mysqli_query($conexao,$query_pedido);
             INNER JOIN item_pedido i ON p.id_pedidos = i.id_pedidos
             INNER JOIN produto pr ON i.id_produto = pr.id_produto
             INNER JOIN status_pedido s ON p.id_status = s.id_status WHERE p.id_pedidos='. $id;
-
-        ?>
+        ?>  
         <div id="pedido" class="col-12">
             <div class="row">
                 <p class="linha_perfil">Id Pedido: <?=$id?></p>
@@ -80,6 +83,32 @@ $consulta_pedido = mysqli_query($conexao,$query_pedido);
                     </div>
                     
                 </div>
+                
+                    <?php
+                        if($admin == true){
+                    ?>
+
+                        <a class="btnPrincipal" href="./script/alterar_statuspedido.php?alterar_status=enviado&id_pedido=<?=$id?>">
+                                Enviado
+                        </a>
+
+                        <a class="btnPrincipal" href="./script/alterar_statuspedido.php?alterar_status=entregue&id_pedido=<?=$id?>">
+                                Entregue
+                        </a>
+
+                        <a class="btnPrincipal" href="./script/alterar_statuspedido.php?alterar_status=pago&id_pedido=<?=$id?>">
+                                Pago
+                        </a>
+
+                    <?php
+                        }
+                    ?>
+
+                <a class="btnPrincipal" href="./script/alterar_statuspedido.php?alterar_status=cancelado&id_pedido=<?=$id?>">
+                        Cancelar
+                </a>
+
+                
                 <div style="margin: 1rem; display: flex; flex-direction: row-reverse;">
                     <button class="btnPrincipal " type="button" data-toggle="collapse" data-target="#pedido<?=$id?>" aria-expanded="false" aria-controls="d">
                         Detalhes
