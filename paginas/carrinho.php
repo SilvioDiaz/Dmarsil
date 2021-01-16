@@ -111,7 +111,7 @@ document.title = "Seu Carrinho"
         <p>Total: <?=$total?></p>
 
 
-        <input class="link_botao" type="submit" value="Atualizar carrinho">
+        <input class="btnPrincipal" type="submit" value="Atualizar carrinho">
             
             
         <?php
@@ -119,7 +119,7 @@ document.title = "Seu Carrinho"
                 
             }else{
         ?>
-        <input id = "fechar" class="link_botao" type="button" value="Fechar Compra">
+        <input id = "fechar" class="btnPrincipal" type="button" value="Fechar Compra">
         <?php
             }
         ?>
