@@ -1,5 +1,5 @@
 <div class="tabela">
-    <h1>Banho:</h1>
+    <h1>Banho</h1>
     <a class="link_botao" href="?pagina=cadastro_banho">Cadastrar novo Banho</a>
     <table cellspacing=0>
         <tr>
