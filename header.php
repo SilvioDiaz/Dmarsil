@@ -93,19 +93,19 @@ if(isset($_SESSION['carrinho'])){
                 <a class="nav-link" href="?pagina=loja&categoria=1">Brinco</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="?pagina=loja&?categoria=2">Anél</a>
+                <a class="nav-link" href="?pagina=loja&categoria=2">Anél</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="?pagina=loja&?categoria=4">Pingente</a>
+                <a class="nav-link" href="?pagina=loja&categoria=4">Pingente</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="?pagina=loja&?categoria=5">Cordão</a>
+                <a class="nav-link" href="?pagina=loja&categoria=5">Cordão</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="?pagina=loja&?categoria=3">Puleira</a>
+                <a class="nav-link" href="?pagina=loja&categoria=3">Puleira</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="?pagina=loja&?categoria=6">Tornozeleira</a>
+                <a class="nav-link" href="?pagina=loja&categoria=6">Tornozeleira</a>
             </li>
           </ul>
       </div>
