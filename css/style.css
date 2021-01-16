@@ -348,6 +348,12 @@ td,th{
     display:flex;
 }
 
+.listaItens{
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+}
+
 /* LOGIN */
 
 #login{

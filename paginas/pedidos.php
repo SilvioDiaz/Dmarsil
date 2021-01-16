@@ -124,25 +124,40 @@ $consulta_pedido = mysqli_query($conexao,$query_pedido);
 
                 
         </div>
-        <?php
-            $consulta = mysqli_query($conexao,$query);
-            while($linha = mysqli_fetch_array($consulta)){
-
-
-        ?>
-
-                
+        
+        <!-- ITEM PEDIDO  -------------------------->
         <div class="collapse" id="pedido<?=$id?>">
-        <div class="card card-body">
+            <div class="detalhesItens">
+                <table cellspacing =0>
 
-                <h1>Produto: <?= $linha['nome_produto'] ?> </h1>
-                <p>Valor Pago: <?= $linha['valor']?></p>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Valor Pago</th>
+                        <th>Quantidade</th>
+                        <th>Imagem</th>
+                    </tr>
 
-                <div class="imgProduto" id="imgProduto">
-                    <img class="imgHome" src=<?= $linha['imagem_produto'] ?>>
+
+                <?php
+                    $consulta = mysqli_query($conexao,$query);
+                    while($linha = mysqli_fetch_array($consulta)){
+                ?>
+
+
+                    <tr>
+
+                    <td> <?= $linha['nome_produto']?> </td>
+                    <td> <?= $linha['valor']?> </td>
+                    <td> <?= $linha['qtd']?> </td>
+                    <td> <?= $linha['imagem_produto']?> </td>
+
+                    </tr>
+                    <?php
+                        }      
+                    ?>
+            </table>
                 </div>
-            </div>  
-        </div>
+            </div>
                 
             
 
@@ -150,7 +165,7 @@ $consulta_pedido = mysqli_query($conexao,$query_pedido);
             
 
         <?php
-                }
+            
         };
         ?>
 
