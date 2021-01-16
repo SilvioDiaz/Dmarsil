@@ -52,7 +52,7 @@ document.title = 'Produtos'
     
             }
             }else{
-                echo "<h2>Escolha uma das opções</h2>";
+                echo "<h2'tituloPagina'>Escolha uma das opções</h2>";
 
             }
         ?>
