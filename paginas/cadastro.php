@@ -299,7 +299,7 @@ function caixaAlta(campo){
     
     if($("#txtCep").val() == ""){
         $(window).on('load',function(){
-        $('#myModal').modal('show');
+            $('#myModal').modal('show');
         });
     }  
     

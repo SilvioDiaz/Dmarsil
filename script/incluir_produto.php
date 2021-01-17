@@ -57,8 +57,14 @@
                                 '$banho_produto'
                                 );";
 
-    mysqli_query($conexao, $query);
+    $resultado = mysqli_query($conexao, $query);
 
+    if($resultado){
+        header('location:../index.php?pagina=cadastro_produtos&cadastro=aprovado');
+    }else{
+        header('location:../index.php?pagina=cadastro_produtos&cadastro=erro');
+   
+    }
+    
+?>]
 
-    header('location:../index.php?pagina=produtos');
-?>

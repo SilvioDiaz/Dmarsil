@@ -1,5 +1,59 @@
+<?php
+
+if(isset($_GET['cadastro'])){
+  $cadastro = $_GET['cadastro'];
+
+?>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resultado"></h5>
+            </div>
+            <div class="modal-body">
+            
+                <div>
+                <a class="btnPrincipal" href="?pagina=cadastro_produtos">Novo Cadastro</a>
+                <a class="btnPrincipal" href="?pagina=home">Sair de cadastro</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+  $(window).on('load',function(){
+      $('#myModal').modal('show');
+  });
+
+</script>
+
+
+<?php
+  if($cadastro == 'aprovado'){
+
+?>
+  <script>
+  $("#resultado").html("Novo produto foi cadastrado. Deseja fazer um novo cadastro?")
+  </script>
+<?php
+
+  }else{
+?>
+  <script>
+  $("#resultado").html("Algo deu errado e seu produto não foi cadastrado, quer tentar novamente?")
+  </script>
+
+<?php
+  }
+}
+?>
+
 <script>
 document.title = "Cadastro de Produto"
+
 </script>
 
 <?php
