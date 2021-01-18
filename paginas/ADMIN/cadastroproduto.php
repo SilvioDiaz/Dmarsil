@@ -85,6 +85,7 @@ document.title = "Cadastro de Produto"
     $campo['tamanho_produto'] = '';
     $campo['peso_produto'] = '';
     $campo['codigo_produto'] = '';
+    $campo['tipo_produto'] = '';
     $campo['id_banho'] = '';
     $campo['ativo'] = '';
     $campo['modelo'] = '';  
@@ -123,10 +124,10 @@ document.title = "Cadastro de Produto"
 
   <form class="cadastro" action="<?=$acao_formulario?>" method="POST" enctype="multipart/form-data">
 
-      <div class="col-12 input_cadastro" id="nome_tipo">
-        <input class="col-5" type="text" id="nome_produto"      name= "txt_nome_produto"        value ='<?=$campo['nome_produto']?>'        placeholder="Nome do Produto">      <br>
+      <div class="input_cadastro" id="nome_tipo">
+        <input type="text" id="nome_produto"      name= "txt_nome_produto"        value ='<?=$campo['nome_produto']?>'        placeholder="Nome do Produto">      <br>
         
-        <select class="col-5" class="entrada" name="cmbTipoProduto">
+        <select  class="entrada" name="cmbTipoProduto">
             <option value="#">Selecione o tipo de Produto:</option>
 
             <?php while($linha_tipoProduto = mysqli_fetch_array($resultado_tipo)){
@@ -142,15 +143,15 @@ document.title = "Cadastro de Produto"
         
       </div>
     <!-- IMAGEM ---------------------------------------------------------------------------------->
-      <div class="col-12">
-          <label class="btnPrincipal" for='fileToUpload'>Selecionar um arquivo &#187;</label>
+      <div>
+          <label class="btnPrincipal" for='fileToUpload'>Selecionar Imagem</label>
           <input type="file" id="fileToUpload"      name= "fileToUpload"            value = '<?=$campo['img_produto']?>'        placeholder="imagem" required>      <br>
            <img id="imgPreview" style="width: 200px;"></img>
       </div>
     <!-- MODELO E BANHO ---------------------------------------------------------------------------------->
     <div id="modelo_banho" class="input_cadastro">
-        <div  class="row col-12">
-          <div class="col-6">
+        <div  class="">
+          <div class="">
             <h3>Modelo</h3>
             <div class="radio_lateral">
               <?php
@@ -171,7 +172,7 @@ document.title = "Cadastro de Produto"
             ?>
             </div>
           </div>
-          <div class="col-6">
+          <div class="">
             <h3>Banho</h3>
             <div class="radio_lateral">
             <?php
@@ -198,12 +199,12 @@ document.title = "Cadastro de Produto"
 
     <!-- VALOR E DESCRIÇÃO ---------------------------------------------------------------------------------->
     <div id="informacoes" class="input_cadastro">
-        <div class="row col-12">
-          <div id="valores" class="col-3">
-            <div>R$<input  type="text" id="precoBase_produto" name= "txt_precoBase_produto" class="preco_input"   value = '<?= $campo['precoBase_produto']?>' placeholder="Valor Vendedora">           <br></div>
-            <div>R$<input type="text" id="preco_produto"     name= "txt_preco_produto"     class="preco_input"   value = '<?=$campo['preco_produto']?>'      placeholder="Valor Cliente">     <br></div>
+        <div class="">
+          <div id="valores" class="">
+            <div><input  style="margin-right: 1rem;" type="text" id="precoBase_produto" name= "txt_precoBase_produto" class="preco_input"   value = '<?= $campo['precoBase_produto']?>' placeholder="Valor Vendedora">           <br></div>
+            <div><input type="text" id="preco_produto"     name= "txt_preco_produto"     class="preco_input"   value = '<?=$campo['preco_produto']?>'      placeholder="Valor Cliente">     <br></div>
           </div>
-        <div class="col-9">
+        <div class="">
           <textarea type="text" id="descricao_produto" name= "txt_descricao_produto"   value = '<?=$campo['descricao_produto']?>'  placeholder="Descrição de Produto"></textarea> <br>
         </div>
         </div>
@@ -212,18 +213,19 @@ document.title = "Cadastro de Produto"
 
 
     <!-- DETALHES ---------------------------------------------------------------------------------->
-    <div class="col-12 input_cadastro" id="detalheCadastro">
-        <input type="text" id="tamanho_produto"   name= "txt_tamanho_produto"     value = '<?=$campo['tamanho_produto']?>'    placeholder="Tamanho do Produto">   <br>
+    <div class="input_cadastro" id="detalheCadastro">
+        <input style="margin-right: 1rem;" type="text" id="tamanho_produto"   name= "txt_tamanho_produto"     value = '<?=$campo['tamanho_produto']?>'    placeholder="Tamanho do Produto">   <br>
         <input type="text" id="peso_produto"      name= "txt_peso_produto"        value = '<?=$campo['peso_produto']?>'       placeholder="Peso do Produto">      <br>
-        <label for="estoque_produto">Estoque</label>
-        <input type="number" id="estoque_produto"   name= "txt_estoque_produto"     value = '<?=$campo['estoque_produto']?>'>                                    <br>
       </div>
-      
+      <label for="estoque_produto">Estoque</label>
+
+      <input type="number" id="estoque_produto"   name= "txt_estoque_produto"     value = '<?=$campo['estoque_produto']?>'>                                    <br>
+
 
       
 
     <!--ATIVO  ---------------------------------------------------------------------------------->
-    <div class="col-12 input_cadastro">
+    <div class=" input_cadastro">
       <h3>Produto Ativo? </h3>
 
         <?php
