@@ -66,70 +66,83 @@ document.title = "Seu Carrinho"
 <?php 
 
     }else{
-        
-        foreach($_SESSION['carrinho'] as $id => $qtd){
-            $sql = "SELECT * FROM produto WHERE id_produto = '$id'";
-            $resultado = mysqli_query($conexao,$sql);
-            $linha = mysqli_fetch_array($resultado);
-
-            $qtd = intval($qtd);
-
-            $titulo = $linha['nome_produto'];
-            $preco = $linha['preco_produto'];
-            $subtotal = $linha['preco_produto'] * $qtd;
-            $total = $total + $subtotal;
-
-            $preco = number_format($preco, 2, ',', '.');
-            $subtotal = number_format($subtotal, 2, ',', '.');   
-
-        ?>
-
-        
-        <div class='tabelaCarrinho'>
-            <table>
-                <form action="?pagina=carrinho&acao=up" method="post">
-                    <tr>
-                        <th>Nome</th>
-                        <th>Quantidade</th>
-                        <th>Preço</th>
-                        <th>Subtotal</th>
-                        <th>Ação</th>
-                    </tr>
-                    <tr>
-                        <td><?=$titulo?></td>
-                        <td><input type="text" size="3" name="produto[<?=$id?>]" value=<?=$qtd?>></td>
-                        <td><?=$preco?></td>
-                        <td><?=$subtotal?></td>
-                        <td><a href="?pagina=carrinho&id=<?=$id?>&acao=del">Remover</a></td>
-                    </tr>
-            </table>     
-<?php
-    }
-
 ?>
+    <div class='tabelaCarrinho'>
+        <table style="width: 50%;">
+            <form action="?pagina=carrinho&acao=up" method="post">
+                <tr>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Subtotal</th>
+                    <th>Ação</th>
+                </tr>
 
-        <p>Total: <?=$total?></p>
+                <?php
+                    foreach($_SESSION['carrinho'] as $id => $qtd){
+                        $sql = "SELECT * FROM produto WHERE id_produto = '$id'";
+                        $resultado = mysqli_query($conexao,$sql);
+                        $linha = mysqli_fetch_array($resultado);
 
+                        $qtd = intval($qtd);
 
-        <input class="btnPrincipal" type="submit" value="Atualizar carrinho">
-            
-            
-        <?php
-            if($id == null){
-                
-            }else{
-        ?>
-        <input id = "fechar" class="btnPrincipal" type="button" value="Fechar Compra">
-        <?php
-            }
-        ?>
-        </form>
+                        $titulo = $linha['nome_produto'];
+                        $preco = $linha['preco_produto'];
+                        $subtotal = $linha['preco_produto'] * $qtd;
+                        $total = $total + $subtotal;
+
+                        $preco = number_format($preco, 2, ',', '.');
+                        $subtotal = number_format($subtotal, 2, ',', '.');   
+
+                ?>
+
+        
+                <tr>
+                    <td><?=$titulo?></td>
+                    <td><input type="number" class="quantidade" name="produto[<?=$id?>]" value=<?=$qtd?>></td>
+                    <td><?=$preco?></td>
+                    <td><?=$subtotal?></td>
+                    <td><a href="?pagina=carrinho&id=<?=$id?>&acao=del">Remover</a></td>
+                </tr>
+     
+            <?php
+                }
+
+            ?>
+            </table>
+
+            <div id="compraCarrinho">
+                <div class="finalCarrinho">
+                    <h4>Total: <?=$total?></h4>         
+                </div>
+                <?php
+                    if($id == null){
+                        
+                    }else{
+                ?>
+
+                <div class="finalCarrinho">
+                    <input id = "fechar" class="btnPrincipal" type="button" value="Fechar Compra">
+                </div>
+
+                <?php
+                    }
+                ?>
+                </div>
+            </form>
+
+    <?php
+        }
+    ?>
     </div>
-<?php
-    }
-?>
 
 <script type="text/javascript">
+
+    $(function() {
+    $(".quantidade").change(function() {
+        $("form").submit();
+        });
+    });
 
     window.history.pushState({}, document.title, '/' + 'dmarsil/index.php?pagina=carrinho');
 
