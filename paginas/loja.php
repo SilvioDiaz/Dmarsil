@@ -76,7 +76,7 @@ function chamarLoja(cb){
       $("#loja").html(resultado);
     },
     error: function(){
-      $*"#loja".html(resultado);
+     alert("Algo deu errado")
     }
   });
 }
