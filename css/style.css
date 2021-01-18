@@ -421,6 +421,17 @@ td,th{
     height: 2rem;
 }
 
+/* FOOTER */
+
+#footer{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #f8f9fa;
+    height: 5rem;
+}
+
 
 
 @media screen and (max-width: 720px){
