@@ -85,7 +85,7 @@ document.title = "Cadastro"
 </script>   
 
 <div class="titulo">
-    <h1><?=$titulo_pagina?></h1>
+    <h1 class="tituloPagina"><?=$titulo_pagina?></h1>
 </div>
 
 

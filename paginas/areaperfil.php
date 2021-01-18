@@ -10,7 +10,7 @@ $id = $_SESSION['Usuario']['id_usuario'];
  $consulta = mysqli_query($conexao, $query);
 ?>
 
-<h1>Perfil:</h1>
+<h1 class="tituloPagina">Perfil</h1>
 <div class="container">
     <div class="row">
 

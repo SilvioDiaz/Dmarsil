@@ -55,13 +55,13 @@ document.title = "Seu Carrinho"
     
 ?>
 
-<h1>Carrinho</h1>
+<h1 class="tituloPagina">Carrinho</h1>
 
 <?php
     $total = 0;
     if(count($_SESSION['carrinho']) == 0){
 ?>
-    <h2>Seu carrinho está vazio!</h2>
+    <h2 class="tituloPagina">Seu carrinho está vazio!</h2>
 
 <?php 
 

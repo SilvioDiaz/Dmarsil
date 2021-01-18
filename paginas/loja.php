@@ -4,6 +4,12 @@
     //Verificando Categoria -------------
     if(isset($_GET['categoria'])){
     $categoria = $_GET['categoria'];
+
+    $query = "SELECT nome_tipoProduto FROM tipo_produto WHERE id_tipoProduto =" . $categoria;
+    $resultado = mysqli_query($conexao,$query);
+    while($linha = mysqli_fetch_array($resultado)){
+      $nome_categoria = $linha['nome_tipoProduto'];
+    };
     }
 
 ?>
@@ -13,6 +19,8 @@
 <p id="idCat"><?=$categoria?></p>
 
 </div>
+
+<h1 class="tituloPagina"><?=$nome_categoria?></h1>
 
 <div id="pagina_loja">
 
