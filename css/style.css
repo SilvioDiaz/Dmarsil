@@ -290,12 +290,35 @@ td,th{
 
 
   
-  /* Aparência que terá o seletor de arquivo */
   
 
 .modal-body{
     display: flex;
     justify-content: center;
+}
+
+/* PAGINA LOJA */
+
+#pagina_loja{
+    display: flex;
+    justify-content: center;
+}
+
+#loja{
+    display: flex;
+}
+
+#filter{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    background-color: #f8f9fa;
+    padding: 0 1rem;
+}
+
+
+.filtroCat{
+    margin-bottom: 1rem;
 }
 
 /* PERFIL */
