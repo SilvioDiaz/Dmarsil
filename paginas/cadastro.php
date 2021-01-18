@@ -146,7 +146,7 @@ function caixaAlta(campo){
                 
                     <div>
                         <form action="" method="post">
-                            <input placeholder = "CEP" type="text" name="cep">
+                            <input id="pegarCep"placeholder = "CEP" type="text" name="cep">
                             <button class="btnPrincipal" id="endPesquisa" type="submit">Pesquisar Endereço</button>
                         </form>
                     </div>
@@ -295,7 +295,17 @@ function caixaAlta(campo){
             </form>
         </div>    
     </div>
+
+    <script src="./script/jquery.maskedinput.js" type="text/javascript"></script>
+
     <script>
+    $(function() {
+        $("#txtNascimento").mask("99/99/9999",{placeholder:"mm/dd/yyyy"});
+        $("#pegarCep").mask("99999-999",{placeholder:"xxxxx-xxx"});
+        $("#txtTelefone").mask("(99)99999-9999",{placeholder:"(xx)xxxxx-xxxx"});
+
+    });
+
     
     if($("#txtCep").val() == ""){
         $(window).on('load',function(){
