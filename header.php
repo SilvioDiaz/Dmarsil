@@ -15,7 +15,6 @@
 <body>
 
 <?php
-
 if(isset($_SESSION)){
   if(isset($_SESSION['Usuario'])){
     $login = $_SESSION['Usuario']['nome'];

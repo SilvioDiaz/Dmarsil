@@ -16,8 +16,14 @@
                     $desconto = $linha['promocao'];
                     $preco = $linha['preco_produto'];
                     $precoDesconto =  round($preco * ((100-$desconto) / 100), 2);
-            ?>
+                    $preco = "R$" . number_format($preco, 2, ',', '.');
+                    $precoDesconto = "R$" . number_format($precoDesconto, 2, ',', '.');
+                    $linhapromo = "style= 'text-decoration: line-through;'";
+
       
+            ?>
+
+       
 
             <a class="produto" href="?pagina=pagina_produto&id=<?= $linha['id_produto'] ?>">
                 <div  id="tituloProduto">
@@ -28,8 +34,8 @@
                         <img class="imgHome" src=<?= $linha['imagem_produto'] ?>>
                     </div>
                     <div id="precoProduto">
-                        <h5>R$ <?= $preco ?></h5>
-                        <h5>R$ <?= $precoDesconto ?></h5>
+                        <h5 <?=$linhapromo?>><?= $preco ?></h5>
+                        <h5><?= $precoDesconto ?></h5>
 
 
                     </div>
@@ -46,7 +52,24 @@
 
             $query = 'SELECT * FROM produto';
             $consulta = mysqli_query($conexao, $query);
-            while ($linha = mysqli_fetch_array($consulta)) {
+            while ($linha = mysqli_fetch_array($consulta)){
+
+                $preco = $linha['preco_produto'];
+                $desconto = $linha['promocao'];
+                
+            
+                if($desconto > 0){
+                    $precoDesconto =  round($preco * ((100-$desconto) / 100), 2);
+                    $precoDesconto = "R$ " .number_format($precoDesconto, 2, ',', '.');
+                    $linhapromo = "style= 'text-decoration: line-through;'";
+                }else{
+                    $precoDesconto = "";
+                    $linhapromo = "";
+                }
+
+                $preco = "R$" . number_format($preco, 2, ',', '.');
+
+            
             ?>
 
             <a class="produto" href="?pagina=pagina_produto&id=<?= $linha['id_produto'] ?>">
@@ -61,7 +84,8 @@
                     </div>
 
                     <div id="precoProduto">
-                        <h5>R$ <?= $linha['preco_produto'] ?></h5>
+                    <h5 <?=$linhapromo?>><?= $preco ?></h5>
+                    <h5><?= $precoDesconto ?></h5>
                     </div>
                 
             </a>

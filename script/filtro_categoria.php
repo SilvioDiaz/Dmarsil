@@ -24,13 +24,17 @@ while($linha = mysqli_fetch_array($consulta)){
 
     $preco = $linha['preco_produto'];
     $desconto = $linha['promocao'];
+    
     if($desconto > 0){
         $precoDesconto =  round($preco * ((100-$desconto) / 100), 2);
-        $precoDesconto = "R$ " . $precoDesconto;
+        $precoDesconto =  "R$" . number_format($precoDesconto, 2, ',', '.');
+        $linhapromo = "style= 'text-decoration: line-through;'";
+
     }else{
         $precoDesconto = "";
+        $linhapromo = "";
     }
-
+    $preco = "R$" . number_format($preco, 2, ',', '.');
 
 
 
@@ -44,7 +48,7 @@ while($linha = mysqli_fetch_array($consulta)){
                     <img class="imgHome" src=<?= $linha['imagem_produto'] ?>>
                 </div>
                 <div id="precoProduto">
-                    <h5>R$ <?= $preco ?></h5>
+                    <h5 <?=$linhapromo?>><?= $preco ?></h5>
                     <h5><?= $precoDesconto ?></h5>
                 </div>
         </a>
