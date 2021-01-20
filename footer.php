@@ -5,5 +5,6 @@
 </div>
 
 <script src="script/bootstrap.bundle.min.js"></script>
+<script src="script/owl.carousel.min.js"></script>
 </body>
 </html>

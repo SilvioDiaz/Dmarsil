@@ -32,11 +32,14 @@ mysqli_query($conexao,$incluir_pedidos);
 $id_pedidos = mysqli_insert_id($conexao);
 
 foreach($_SESSION['carrinho'] as $id => $qtd){
-    $sql = "SELECT preco_produto FROM produto WHERE id_produto = '$id'";
+    $sql = "SELECT preco_produto,promocao FROM produto WHERE id_produto = '$id'";
     $resultado = mysqli_query($conexao,$sql);
     $linha = mysqli_fetch_array($resultado);
 
     $valor = $linha['preco_produto'];
+    $desconto = $linha['promocao'];
+    $valor =  round($valor * ((100-$desconto) / 100), 2);
+
     $id_produto = $id;
     $quantidade = $qtd;
 

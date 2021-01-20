@@ -86,12 +86,7 @@ switch($pagina){
         break;
     case 'categoria':
         include 'paginas/ADMIN/categorias.php';
-
-    
-
-    
-
-                
+     
     
 }
 

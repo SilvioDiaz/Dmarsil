@@ -22,6 +22,17 @@ $consulta = mysqli_query($conexao,$query);
 
 while($linha = mysqli_fetch_array($consulta)){
 
+    $preco = $linha['preco_produto'];
+    $desconto = $linha['promocao'];
+    if($desconto > 0){
+        $precoDesconto =  round($preco * ((100-$desconto) / 100), 2);
+        $precoDesconto = "R$ " . $precoDesconto;
+    }else{
+        $precoDesconto = "";
+    }
+
+
+
 
 ?>
     <a class="produto" href="?pagina=pagina_produto&id=<?= $linha['id_produto'] ?>">
@@ -33,7 +44,8 @@ while($linha = mysqli_fetch_array($consulta)){
                     <img class="imgHome" src=<?= $linha['imagem_produto'] ?>>
                 </div>
                 <div id="precoProduto">
-                    <h5>R$ <?= $linha['preco_produto'] ?></h5>
+                    <h5>R$ <?= $preco ?></h5>
+                    <h5><?= $precoDesconto ?></h5>
                 </div>
         </a>
 <?php

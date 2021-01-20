@@ -88,7 +88,10 @@ document.title = "Seu Carrinho"
 
                         $titulo = $linha['nome_produto'];
                         $preco = $linha['preco_produto'];
-                        $subtotal = $linha['preco_produto'] * $qtd;
+                        $desconto = $linha['promocao'];
+                        $preco =  round($preco * ((100-$desconto) / 100), 2);
+
+                        $subtotal = $preco * $qtd;
                         $total = $total + $subtotal;
 
                         $preco = number_format($preco, 2, ',', '.');

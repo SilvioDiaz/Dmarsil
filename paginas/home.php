@@ -7,6 +7,41 @@
     <div class="containerLista">
         <div class='Home' id='produtoHome'>
 
+        <h2>Promoçôes</h2>
+            <div id="slide" class="owl-carousel">
+        <?php
+                $queryPromo = "SELECT * FROM produto WHERE promocao >0";
+                $consulta = mysqli_query($conexao, $queryPromo);
+                while ($linha = mysqli_fetch_array($consulta)) {
+                    $desconto = $linha['promocao'];
+                    $preco = $linha['preco_produto'];
+                    $precoDesconto =  round($preco * ((100-$desconto) / 100), 2);
+            ?>
+      
+
+            <a class="produto" href="?pagina=pagina_produto&id=<?= $linha['id_produto'] ?>">
+                <div  id="tituloProduto">
+                    <h1><?= $linha['nome_produto'] ?></h1>    
+                </div>
+
+                    <div class="" id="imgProduto">
+                        <img class="imgHome" src=<?= $linha['imagem_produto'] ?>>
+                    </div>
+                    <div id="precoProduto">
+                        <h5>R$ <?= $preco ?></h5>
+                        <h5>R$ <?= $precoDesconto ?></h5>
+
+
+                    </div>
+                
+            </a>
+
+            <?php
+                }              
+        ?>
+            </div>
+
+
             <?php
 
             $query = 'SELECT * FROM produto';
@@ -37,32 +72,11 @@
             ?>
 
         </div>
-
-        <?php
-                $queryPromo = "SELECT * FROM produto WHERE promocao >0";
-                $consulta = mysqli_query($conexao, $queryPromo);
-                while ($linha = mysqli_fetch_array($consulta)) {
-                            
-            ?>
-
-            <a class="produto" href="?pagina=pagina_produto&id=<?= $linha['id_produto'] ?>">
-                <div  id="tituloProduto">
-                    <h1><?= $linha['nome_produto'] ?></h1>    
-                </div>
-
-                    <div class="imgProduto" id="imgProduto">
-                        <img class="imgHome" src=<?= $linha['imagem_produto'] ?>>
-                    </div>
-                    <div id="precoProduto">
-                        <h5>R$ <?= $linha['preco_produto'] ?></h5>
-                    </div>
-                
-            </a>
-
-            <?php
-                }              
-        ?>
-
+        <script>
+            $(document).ready(function(){
+            $("#slide").owlCarousel();
+            });
+        </script>
 
     </div>
 </div>
