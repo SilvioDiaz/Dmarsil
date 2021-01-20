@@ -19,45 +19,42 @@
 <p id="idCat"><?=$categoria?></p>
 
 </div>
+<div class="container">
 
-<h1 class="tituloPagina"><?=$nome_categoria?></h1>
+  <h1 class="tituloPagina"><?=$nome_categoria?></h1>
 
-<div id="pagina_loja">
+  <div id="pagina_loja">
 
-  <div id="filter" class="col-1">
-    <div class="form-check form-check-inline filtroCat">
-      <input class="form-check-input" type="checkbox" name="type"  value="id_banho = 1">
-      <label class="form-check-label" for="inlineCheckbox1">Ouro</label>
-    </div>
-    <div class="form-check form-check-inline filtroCat">
-      <input class="form-check-input" type="checkbox" name="type"   value="id_banho = 2">
-      <label class="form-check-label" for="inlineCheckbox2">Ouro Branco</label>
-    </div>
-
+    <div id="filter" class="col-2">
       <div class="form-check form-check-inline filtroCat">
-        <input class="form-check-input modelocheck" type="checkbox" name="type"  value="id_modelo = 1">
-        <label class="form-check-label" for="inlineCheckbox3">Masculino</label>
+        <input class="form-check-input" type="checkbox" name="type"  value="id_banho = 1">
+        <label class="form-check-label" for="inlineCheckbox1">Ouro</label>
       </div>
       <div class="form-check form-check-inline filtroCat">
-        <input class="form-check-input modelocheck" type="checkbox" name="type"  value="id_modelo = 2">
-        <label class="form-check-label" for="inlineCheckbox3">Feminino</label>
+        <input class="form-check-input" type="checkbox" name="type"   value="id_banho = 2">
+        <label class="form-check-label" for="inlineCheckbox2">Ouro Branco</label>
       </div>
-      <div class="form-check form-check-inline filtroCat">
-        <input class="form-check-input modelocheck" type="checkbox" name="type"  value="id_modelo = 3">
-        <label class="form-check-label" for="inlineCheckbox3">Infantil</label>
+
+        <div class="form-check form-check-inline filtroCat">
+          <input class="form-check-input modelocheck" type="checkbox" name="type"  value="id_modelo = 1">
+          <label class="form-check-label" for="inlineCheckbox3">Masculino</label>
+        </div>
+        <div class="form-check form-check-inline filtroCat">
+          <input class="form-check-input modelocheck" type="checkbox" name="type"  value="id_modelo = 2">
+          <label class="form-check-label" for="inlineCheckbox3">Feminino</label>
+        </div>
+        <div class="form-check form-check-inline filtroCat">
+          <input class="form-check-input modelocheck" type="checkbox" name="type"  value="id_modelo = 3">
+          <label class="form-check-label" for="inlineCheckbox3">Infantil</label>
+      </div>
+
     </div>
 
-  </div>
+    <div id="loja" class="col-9">
 
-  <div id="loja" class="col-9">
-
+    </div>
   </div>
 </div>
-
-
-
-
-
 
 <script>
 
