@@ -374,6 +374,31 @@ td,th{
     color: #da4080;
 }
 
+/* AREA PRODUTO */
+
+#imagem_nome{
+    display: flex;
+    margin: 2rem 0;
+}
+
+#nome_descricao{
+    background-color: #f8f9fa;
+}
+
+#precoArea{
+    font-size: xx-large;
+}
+
+#precoProduto{
+    margin: 0 1rem;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1rem 0;
+}
+
 
 /* PEDIDO */
 
