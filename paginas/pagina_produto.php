@@ -30,11 +30,11 @@ while($linha = mysqli_fetch_array($consulta)){
         <div  id="produtoDetalhes">
 
             <div id="imagem_nome">
-                <div class="col-md-12" id="imgProduto">
+                <div class="" id="imgProduto">
                     <img class="imgHome" src=<?= $linha['imagem_produto'] ?> style="height: 500px;width: 500px;">
                 </div>
 
-                <div class="col-4 col-md-12" id="nome_descricao">
+                <div class="col-4" id="nome_descricao">
                     <div id="nome_produto">
                         <h1><?= $linha['nome_produto'] ?></h1>
                     </div>
