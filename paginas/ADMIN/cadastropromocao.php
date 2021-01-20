@@ -13,75 +13,29 @@ document.title = 'Promoções Produto'
 </div>
 <div class="tabela">
 
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Brinco" aria-expanded="false" aria-controls="collapseExample">
-    Brinco
-</button>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Anel" aria-expanded="false" aria-controls="collapseExample">
-    Anél
-</button>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Pingente" aria-expanded="false" aria-controls="collapseExample">
-    Pingente
-</button>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Cordao" aria-expanded="false" aria-controls="collapseExample">
-    Cordão
-</button>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Pulseira" aria-expanded="false" aria-controls="collapseExample">
-    Pulseira
-</button>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Tornozeleira" aria-expanded="false" aria-controls="collapseExample">
-    Tornozeleira
-</button>
 
-    <div class="collapse" id="Brinco">
-        <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+    <form action="./script/incluirPromo.php">
+        <h2>Brinco</h2>
+        <input class="inputCadastro" id="brincoPromo" name="brincoPromo" type="number">
+
+        <h2>Anel</h2>
+        <input class="inputCadastro" id="anelPromo" name="anelPromo" type="number">
+
+        <h2>Pingente</h2>
+        <input class="inputCadastro" id="pingentePromo" name="pingentePromo" type="number">
+
+        <h2>Cordão</h2>
+        <input class="inputCadastro" id="cordaoPromo" name="cordaoPromo" type="number">
+
+        <h2>Pulseira</h2>
+        <input class="inputCadastro" id="pulseiraPromo" name="pulseiraPromo" type="number">
+
+        <h2>Tornozeleira</h2>
+        <input class="inputCadastro" id="tornozeleiraPromo" name="tornozeleiraPromo" type="number">
+        
+        <div>
+            <input class="btnPrincipal" type = "submit">
         </div>
-    </div>
-
-    <div class="collapse" id="Anel">
-        <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+    </form>    
         </div>
-    </div>
-
-    <div class="collapse" id="Pingente">
-        <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-        </div>
-    </div>
-
-    <div class="collapse" id="Cordao">
-        <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-        </div>
-    </div>
-
-    <div class="collapse" id="Pulseira">
-        <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-        </div>
-    </div>
-
-    <div class="collapse" id="Tornozeleira">
-        <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-        </div>
-    </div>
-
-
-        <?php
-            while($linha = mysqli_fetch_array($consulta)){
-            ?>
-
-            <input type="checkbox" id=<?=$linha['id_produto']?> name=<?=$linha['id_produto']?>>
-                <label for <?=$linha['id_produto']?>><?=$linha['nome_produto']?>
-                <img style = "width:100px"src=<?=$linha['imagem_produto']?> >
-                </label>
-
-            <?php
-            }
-        ?>
-    </table>
-    <a class="link_botao" href="?pagina=configurar_promo">Configurar Promoção</a>
-</div>
         </div>
