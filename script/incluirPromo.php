@@ -37,8 +37,8 @@ $query = " UPDATE produto SET promocao = $brincoPromo WHERE tipo_produto = 1;
 $teste = mysqli_multi_query($conexao, $query);
 
 if($teste){
-    echo "foi";
+    header('location:../index.php?pagina=home');
 }else{
-    echo "Resolve ai";
+    header('location:../index.php?pagina=home');
 }
 ?>

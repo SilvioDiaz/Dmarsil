@@ -52,7 +52,7 @@
 
     }
     echo '<br>' . $query;
-    // header('location:../index.php?pagina=produtos');
+    header('location:../index.php?pagina=produtos');
 
 
     ?>
