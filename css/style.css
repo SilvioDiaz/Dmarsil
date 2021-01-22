@@ -306,6 +306,7 @@ td,th{
 
 #loja{
     display: flex;
+    flex-wrap: wrap;
 }
 
 #filter{

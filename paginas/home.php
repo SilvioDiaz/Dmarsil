@@ -8,6 +8,7 @@
         <div class='Home' id='produtoHome'>
 
         <h2>Promoçôes</h2>
+            <div id="promocoes" style="width: 1000px">
             <div id="slide" class="owl-carousel">
         <?php
                 $queryPromo = "SELECT * FROM produto WHERE promocao >0";
@@ -46,7 +47,7 @@
                 }              
         ?>
             </div>
-
+            </div>
 
             <?php
 

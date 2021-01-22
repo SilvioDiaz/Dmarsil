@@ -69,8 +69,6 @@ function modelo(){
   
   filtro_modelo = modelo.join(" OR tipo_produto=" + categoria + " AND ");
 
-  console.log(filtro_modelo);
-  alert(filtro_modelo);
   chamarLoja(filtro_modelo);
 
 }
@@ -88,8 +86,6 @@ function checagem(){
   });
     filtro = cb.join(" OR tipo_produto=" + categoria + " AND ");
 
-  console.log(filtro);
-  alert(filtro);
   chamarLoja(filtro);
 }
 
