@@ -5,7 +5,7 @@ USE appDB;
 CREATE TABLE usuario(
 	id_usuario INT AUTO_INCREMENT,
     login VARCHAR(10) NOT NULL,
-    senha VARCHAR(15) NOT NULL,
+    senha VARCHAR(500) NOT NULL,
     nome VARCHAR(50) NOT NULL,
     email VARCHAR(30) NOT NULL,
     nascimento DATE,
@@ -125,7 +125,7 @@ INSERT INTO usuario (login,
  cep, 
  telefone,
  id_estado,
- id_tipo) VALUES ('Silvio', '123', 'Silvio Gabriel Pimentel Dias', 'silviodias8885@gmail.com', '1996-10-28', 'Rua Mario Santoro', '0', 'São José de Imbassaí', 'Maricpa','24932-110', '(21)983728410', 12,1);
+ id_tipo) VALUES ('Silvio', md5('123'), 'Silvio Gabriel Pimentel Dias', 'silviodias8885@gmail.com', '1996-10-28', 'Rua Mario Santoro', '0', 'São José de Imbassaí', 'Maricpa','24932-110', '(21)983728410', 12,1);
  
 USE appdb; 
 

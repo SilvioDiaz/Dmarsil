@@ -38,7 +38,7 @@
                                   telefone,
                                   id_tipo)
                            VALUES('$login',
-                                  '$senha',
+                                MD5('$senha'),
                                   '$nome',
                                   '$email',
                                   '$nascimento',

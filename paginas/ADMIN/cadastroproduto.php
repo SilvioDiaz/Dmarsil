@@ -258,6 +258,7 @@ document.title = "Cadastro de Produto"
   </form>
 </div>
 
+<script src="./script/jquery.maskedinput.js" type="text/javascript"></script>
 <script>
 //PREVIEW DE IMAGEM////////////////////////////////////////////////////////////
     $("#fileToUpload").change(function() {
@@ -265,5 +266,19 @@ document.title = "Cadastro de Produto"
       );
 
     });
+
+
+    $(function() {
+        $("#preco_produto").mask("99.99",{placeholder:"XX,XX"});
+        $("#precoBase_produto").mask("99.99",{placeholder:"XX,XX"});
+        $("#tamanho_produto").mask("99.99",{placeholder:"XX,XX"});
+        $("#peso_produto").mask("99.99",{placeholder:"XX,XX"});
+
+
+        $("#pegarCep").mask("99999-999",{placeholder:"xxxxx-xxx"});
+        $("#txtTelefone").mask("(99)99999-9999",{placeholder:"(xx)xxxxx-xxxx"});
+
+    });
+
 
 </script>

@@ -2,16 +2,16 @@
 #USUARIOS# 
 
 INSERT INTO usuario(login, senha, nome, email, nascimento, endereco, numero, complemento, bairro, cidade, id_estado, cep, telefone, id_tipo)
- VALUES('funcionari', '123', 'FUNCIONARIO', 'Funcionario@gmail.com', '1996-10-28', 'Rua Xavier da Silveira', '', '', 'Copacabana', 'Rio de Janeiro', 18, '22061-010', '21222222222', 2);
+ VALUES('funcionari', md5('123'), 'FUNCIONARIO', 'Funcionario@gmail.com', '1996-10-28', 'Rua Xavier da Silveira', '', '', 'Copacabana', 'Rio de Janeiro', 18, '22061-010', '21222222222', 2);
  
  INSERT INTO usuario(login, senha, nome, email, nascimento, endereco, numero, complemento, bairro, cidade, id_estado, cep, telefone, id_tipo)
- VALUES('funcionari', '123', 'FUNCIONARIO', 'Funcionario@gmail.com', '1996-10-28', 'Rua Xavier da Silveira', '', '', 'Copacabana', 'Rio de Janeiro', 18, '22061-010', '21222222222', 2);
+ VALUES('funcionari', md5('123'), 'FUNCIONARIO', 'Funcionario@gmail.com', '1996-10-28', 'Rua Xavier da Silveira', '', '', 'Copacabana', 'Rio de Janeiro', 18, '22061-010', '21222222222', 2);
  
  INSERT INTO usuario(login, senha, nome, email, nascimento, endereco, numero, complemento, bairro, cidade, id_estado, cep, telefone, id_tipo)
- VALUES('funcionari', '123', 'FUNCIONARIO', 'Funcionario@gmail.com', '1996-10-28', 'Rua Xavier da Silveira', '', '', 'Copacabana', 'Rio de Janeiro', 18, '22061-010', '21222222222', 2);
+ VALUES('funcionari', md5('123'), 'FUNCIONARIO', 'Funcionario@gmail.com', '1996-10-28', 'Rua Xavier da Silveira', '', '', 'Copacabana', 'Rio de Janeiro', 18, '22061-010', '21222222222', 2);
  
  INSERT INTO usuario(login, senha, nome, email, nascimento, endereco, numero, complemento, bairro, cidade, id_estado, cep, telefone, id_tipo)
- VALUES('funcionari', '123', 'FUNCIONARIO', 'Funcionario@gmail.com', '1996-10-28', 'Rua Xavier da Silveira', '', '', 'Copacabana', 'Rio de Janeiro', 18, '22061-010', '21222222222', 2);
+ VALUES('funcionari', md5('123'), 'FUNCIONARIO', 'Funcionario@gmail.com', '1996-10-28', 'Rua Xavier da Silveira', '', '', 'Copacabana', 'Rio de Janeiro', 18, '22061-010', '21222222222', 2);
  
  
  #PRODUTOS#

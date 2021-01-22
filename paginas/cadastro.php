@@ -41,7 +41,7 @@
 
         while($linha = mysqli_fetch_array($resultado)){
             $campo['login'] = $linha['login'];
-            $campo['senha'] = $linha['senha'];
+            $campo['senha'] = "";
             $campo['nome'] = $linha['nome'];
             $campo['email'] = $linha['email'];
             $campo['nascimento'] = substr($linha['nascimento'],8,2).'/'.substr($linha['nascimento'],5,2).'/'.substr($linha['nascimento'],0,4);

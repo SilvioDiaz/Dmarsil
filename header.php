@@ -129,7 +129,7 @@ if(isset($_SESSION['carrinho'])){
                 <a class="nav-link" href="?pagina=loja&categoria=5">Cordão</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="?pagina=loja&categoria=3">Puleira</a>
+                <a class="nav-link" href="?pagina=loja&categoria=3">Pulseira</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="?pagina=loja&categoria=6">Tornozeleira</a>

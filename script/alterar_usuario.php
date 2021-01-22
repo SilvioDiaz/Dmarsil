@@ -21,7 +21,7 @@
     $tipo = $_POST['cmbTipo'];
 
     $query = "UPDATE usuario SET login        = '$login',
-                                 senha        = '$senha',
+                                 senha        = MD5('$senha'),
                                  nome         = '$nome',
                                  email        = '$email',
                                  nascimento   = '$nascimento',
