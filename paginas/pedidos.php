@@ -1,5 +1,36 @@
 <?php
 
+if(isset($_GET['pedido'])){
+    $pedido = $_GET['pedido'];
+
+    if($pedido == 'feito'){
+    ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Parabéns!!',
+        text: 'Sua compra foi efetuada com sucesso',
+    })
+    </script>
+    <?php
+    }else{
+    ?>
+    <script>
+
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Algo deu errado com a sua compra',
+        footer: 'Vamos verificar o problema'
+    })
+
+    </script>
+    <?php
+       
+    }
+}
+
 if(isset($_SESSION['Usuario'])){
 
     if($_SESSION['Usuario']['id_tipo'] == '1'){
@@ -26,7 +57,7 @@ $query_pedido = 'SELECT p.id_pedidos,p.id_status, p.valor_total, p.data_pedido,
 s.descricao_status,u.nome, u.endereco, u.numero, u.complemento, u.bairro, u.cidade, u.cep
 	FROM pedidos p
     INNER JOIN status_pedido s ON p.id_status = s.id_status
-    INNER JOIN usuario u ON p.id_usuario = u.id_usuario'.$pedidos_usuario;
+    INNER JOIN usuario u ON p.id_usuario = u.id_usuario'.$pedidos_usuario . ' ORDER BY  id_pedidos DESC';
 
 
 $consulta_pedido = mysqli_query($conexao,$query_pedido);

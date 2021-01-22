@@ -94,8 +94,9 @@ document.title = "Seu Carrinho"
                         $subtotal = $preco * $qtd;
                         $total = $total + $subtotal;
 
-                        $preco = number_format($preco, 2, ',', '.');
-                        $subtotal = number_format($subtotal, 2, ',', '.');   
+                        $preco = "R$" . number_format($preco, 2, ',', '.');
+                        $subtotal = "R$" . number_format($subtotal, 2, ',', '.');
+                        $totalShow = "R$" . number_format($total, 2, ',', '.');
 
                 ?>
 
@@ -116,7 +117,7 @@ document.title = "Seu Carrinho"
 
             <div id="compraCarrinho">
                 <div class="finalCarrinho">
-                    <h4>Total: <?=$total?></h4>         
+                    <h4>Total: <?=$totalShow?></h4>         
                 </div>
                 <?php
                     if($id == null){
@@ -139,6 +140,25 @@ document.title = "Seu Carrinho"
     ?>
     </div>
 
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                </div>
+                <div class="modal-body">
+                    <div style = "display:flex; flex-direction:column">
+                    <h6>O pedido com valor total de <?=$totalShow?> será enviado para o endereço cadastrado em sua conta</h6>
+                    <div style = "display:flex; justify-content: flex-end;" >
+                        <button class="btnPrincipal" id="finalizarCompra" >Finalizar Compra</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 <script type="text/javascript">
 
     $(function() {
@@ -151,9 +171,12 @@ document.title = "Seu Carrinho"
 
 
     $('#fechar').click(function() {
-        var total = '<?php echo $total ?>'
-        alert(total);
-        window.location.href = `./script/incluir_pedido.php?total=${total}`;
+        $('#myModal').modal('show');
     });
+
+    $('#finalizarCompra').click(function(){
+        var total = '<?php echo $total ?>'
+        window.location.href = `./script/incluir_pedido.php?total=${total}`;
+        });
 
 </script>

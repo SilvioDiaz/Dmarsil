@@ -91,39 +91,6 @@ document.title = "Cadastro"
 
 <script>
 
-function verificarNumero(campo,evento){
-    var e = evento.keyCode;
-    var d = campo.value;
-    
-    if(e <96 && e > 105 || e< 48 || e> 57 ){
-        campo.value = null;
-        alert ("Não é número");
-    }else{
-        campo.value = d;
-    }
-
-   
-}
-
-
-
-function formatarData(campo,evento){ 
-     var e = evento.keyCode; 
-     var d = campo.value(str); 
- 
-
-     if(e != 8 && e != 46){ 
-         if(d.length == 2){ 
-             campo.value = d += '/'; 
-         }else if (d.length == 5){
-             campo.value = d += '/';
-         }else{
-             campo.value = d;
-         }
-     }
-}   
-
-
 function caixaAlta(campo){
     var input_ = campo.value;
     campo.value = input_.toUpperCase();
@@ -136,7 +103,7 @@ function caixaAlta(campo){
 
 
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -206,21 +173,21 @@ function caixaAlta(campo){
 
                 <input class="input_cadastro entrada" type="password" size=10 value="<?=$campo['senha']?>" maxlength="15" id="txtSenha" name="txtSenha" placeholder="Senha" required><br>
 
-                <input class="input_cadastro entrada" type="text" size=15 value="<?=$campo['nascimento']?>" id="txtNascimento" name="txtNascimento" placeholder="Data de Nascimento" maxlength="10" onkeypress="verificarNumero(this,event)" required ><br>
+                <input class="input_cadastro entrada" type="text" size=15 value="<?=$campo['nascimento']?>" id="txtNascimento" name="txtNascimento" placeholder="Data de Nascimento" maxlength="10"  required ><br>
       
 
                 <div class="col-12">
                     <div class="row">
-                        <input class="input_cadastro entrada" type="text" size=15 value="<?=$campo['telefone']?>" maxlength="14" id="txtTelefone" name="txtTelefone" placeholder="Telefone" onkeypress="verificarNumero(this,event)" required><br>
+                        <input class="input_cadastro entrada" type="text" size=15 value="<?=$campo['telefone']?>" maxlength="14" id="txtTelefone" name="txtTelefone" placeholder="Telefone"  required><br>
                     </div>
                 </div>
                
-                <input readonly class="input_cadastro entrada" type="text" maxlength="10" size=10 value="<?=$campo['cep']?>" id="txtCep" name="txtCep" placeholder="CEP" onkeypress="verificarNumero(this,event)" required><br>
+                <input readonly class="input_cadastro entrada" type="text" maxlength="10" size=10 value="<?=$campo['cep']?>" id="txtCep" name="txtCep" placeholder="CEP"  required><br>
   
                 <div class="col-12">
                     <div class="row">
                         <input style="margin-right: 0.5rem;" readonly class="input_cadastro entrada" type="text" size=50 value="<?=$campo['endereco']?>" maxlength="40" id="txtEndereco" name="txtEndereco" placeholder="Endereço (Rua, Praça, etc...)" onkeyup="caixaAlta(this)" required><br>
-                        <input class="input_cadastro entrada" type="text" size=5 value="<?=$campo['numero']?>" maxlength="8" id="txtNumero" name="txtNumero" placeholder="Numero" onkeypress="verificarNumero(this,event)"><br>
+                        <input class="input_cadastro entrada" type="text" size=5 value="<?=$campo['numero']?>" maxlength="8" id="txtNumero" name="txtNumero" placeholder="Numero" ><br>
                     </div>
                 </div>
 
@@ -311,11 +278,14 @@ function caixaAlta(campo){
         $(window).on('load',function(){
             $('#myModal').modal('show');
         });
+
+        $('#endPesquisa').click(function(){
+            $('#myModal').modal('toggle');
+        });
+
     }  
-    
-    $('#endPesquisa').click(function(){
-        $('#myModal').modal('toggle');
-    });
+    if($("#txtCep").val() != ""){   
+    }
 
 </script>
 

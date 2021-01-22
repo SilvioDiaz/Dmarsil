@@ -6,8 +6,6 @@ if(!isset($_SESSION)){
 
 include './banco.php';
 
-
-
 $data_pedido = getdate();
 
 //Incluir Pedido
@@ -67,19 +65,25 @@ $qtd_produto = $qtd_produto['estoque_produto'] - $quantidade;
 $remover_estoque = "UPDATE produto SET estoque_produto = '$qtd_produto'
                     WHERE id_produto = $id_produto";
 
-mysqli_query($conexao,$incluir_item);
+$incluir = mysqli_query($conexao,$incluir_item);
 mysqli_query($conexao,$remover_estoque);
 
-echo "Quantidade comprada: ".$quantidade."<br>";
-echo "Query para remover estoque: ".$remover_estoque."<br>";
-echo "Query buscando estoque ".$qtd_atual."<br>";
-echo "Nova quantidade em estoque ".$qtd_produto."<br>";
-echo "Id Produto:: ".$id_produto;
+// echo "Quantidade comprada: ".$quantidade."<br>";
+// echo "Query para remover estoque: ".$remover_estoque."<br>";
+// echo "Query buscando estoque ".$qtd_atual."<br>";
+// echo "Nova quantidade em estoque ".$qtd_produto."<br>";
+// echo "Id Produto:: ".$id_produto."<br>";
+// echo $incluir_item."<br>";
+// echo $incluir_pedidos;
+
 
 }
 
+if($incluir AND  $resultado){
+    header('location:../index.php?pagina=perfil&areaUsuario=pedidos_usuario&pedido=feito');
+    unset($_SESSION['carrinho']);
+}else{
+    header('location:../index.php?pagina=perfil&areaUsuario=pedidos_usuario&pedido=erro');
 
-
-
-// header('location:../index.php?pagina=produtos');
+}
 ?>

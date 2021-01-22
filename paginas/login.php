@@ -19,7 +19,7 @@ if(isset($_GET['perfil'])=='logar'){
 }
 ?>
 
-<div id="login">
+<div class="formlogin" id="login">
     <form class="formulario" action='./script/codigo_login.php?<?=$pagina?>' method='POST'>
         <input class ="inputLogin" type="text" id="inputLogin"  name="inputLogin" placeholder="Login" required maxlength="10"> <br>
         <input class ="inputLogin" type="password" id="inputSenha" name="inputSenha" placeholder="Senha" required maxlength="15"> <br>

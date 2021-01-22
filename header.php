@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="script/sweetalert2.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -34,14 +35,40 @@ if(isset($_SESSION)){
 }
 
     if(isset($_GET['status'])){
-        if($_GET['status'] == 'logado'){
-            echo "<script> alert('Logado')</script>";
+      echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>";
 
+        if($_GET['status'] == 'logado'){
+            echo
+             "<script> Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Você está logado',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            </script>";
+            
         }else if($_GET['status'] == 'erro'){
-            echo "<script> alert('Algo deu errado')</script>";
+          echo
+          "<script> Swal.fire({
+           position: 'top-end',
+           icon: 'error',
+           title: 'Não encontramos a sua conta, verifique e-mail ou senha',
+           showConfirmButton: false,
+           timer: 2000
+         })
+         </script>";
 
         }else if($_GET['status'] == 'desconectado'){
-            echo "<script> alert('Você foi desconectado')</script>";
+          echo
+          "<script> Swal.fire({
+           position: 'top-end',
+           icon: 'warning',
+           title: 'Você não está mais logado',
+           showConfirmButton: false,
+           timer: 1000
+         })
+         </script>";
 
     }
 }

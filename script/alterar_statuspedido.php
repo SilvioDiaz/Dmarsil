@@ -33,6 +33,6 @@ WHERE id_pedidos  = $id";
 
 mysqli_query($conexao, $query);
 
-header('location:../index.php?pagina=pedidos');
+header('location:../index.php?pagina=perfil&areaUsuario=pedidos_usuario');
 
 ?>
